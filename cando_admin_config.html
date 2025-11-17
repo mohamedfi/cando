@@ -278,7 +278,20 @@
                     </div>
                 </div>
             </div>
-            
+
+            <!-- STAFF SECTION -->
+            <div class="form-section">
+                <h2>👥 Staff Members</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Current Staff Count
+                            <span class="label-help">(Total number of employees)</span>
+                        </label>
+                        <input type="number" id="currentStaff" name="currentStaff" value="24" required min="0">
+                    </div>
+                </div>
+            </div>
+
             <!-- TUITION RATES SECTION -->
             <div class="form-section">
                 <h2>💵 Tuition Rates (Per Student)</h2>
@@ -469,6 +482,7 @@
                 totalCapacity: parseFloat(document.getElementById('totalCapacity').value),
                 currentActiveClasses: parseFloat(document.getElementById('currentActiveClasses').value),
                 totalClassrooms: parseFloat(document.getElementById('totalClassrooms').value),
+                currentStaff: parseFloat(document.getElementById('currentStaff').value),
                 currentTuitionRate: parseFloat(document.getElementById('currentTuitionRate').value),
                 futureTuitionRate: parseFloat(document.getElementById('futureTuitionRate').value),
                 currentMonthlyExpenses: parseFloat(document.getElementById('currentMonthlyExpenses').value),
@@ -526,6 +540,7 @@
                 document.getElementById('totalCapacity').value = 220;
                 document.getElementById('currentActiveClasses').value = 8;
                 document.getElementById('totalClassrooms').value = 12;
+                document.getElementById('currentStaff').value = 24;
                 document.getElementById('currentTuitionRate').value = 205;
                 document.getElementById('futureTuitionRate').value = 252;
                 document.getElementById('currentMonthlyExpenses').value = 12932;
