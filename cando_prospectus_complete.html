@@ -2169,20 +2169,40 @@
             year3MonthlyExpenses: 17018
         };
 
-        // Load saved configuration from Admin Panel (localStorage)
+        // Load configuration with priority: Server JSON > localStorage > DEFAULT_CONFIG
         let CONFIG = { ...DEFAULT_CONFIG };
-        try {
-            const savedConfig = localStorage.getItem('candoNurseryConfig');
-            if (savedConfig) {
-                const parsed = JSON.parse(savedConfig);
-                CONFIG = { ...DEFAULT_CONFIG, ...parsed };
-                console.log('✅ Loaded configuration from Admin Panel');
-                console.log('📊 Active Config:', CONFIG);
-            } else {
-                console.log('ℹ️ Using default configuration (no saved config found)');
+
+        async function loadConfiguration() {
+            // Priority 1: Try to load from server's config.json
+            try {
+                const response = await fetch('config.json');
+                if (response.ok) {
+                    const serverConfig = await response.json();
+                    CONFIG = { ...DEFAULT_CONFIG, ...serverConfig };
+                    console.log('✅ Loaded configuration from server (config.json)');
+                    console.log('📊 Active Config:', CONFIG);
+                    return;
+                }
+            } catch (e) {
+                console.log('ℹ️ Could not load server config, trying localStorage...');
             }
-        } catch (e) {
-            console.warn('⚠️ Error loading saved config, using defaults:', e);
+
+            // Priority 2: Try localStorage (Admin Panel)
+            try {
+                const savedConfig = localStorage.getItem('candoNurseryConfig');
+                if (savedConfig) {
+                    const parsed = JSON.parse(savedConfig);
+                    CONFIG = { ...DEFAULT_CONFIG, ...parsed };
+                    console.log('✅ Loaded configuration from localStorage (Admin Panel)');
+                    console.log('📊 Active Config:', CONFIG);
+                    return;
+                }
+            } catch (e) {
+                console.warn('⚠️ Error loading localStorage config:', e);
+            }
+
+            // Priority 3: Use DEFAULT_CONFIG
+            console.log('ℹ️ Using default configuration');
         }
 
         // ========================================
@@ -2544,11 +2564,13 @@
         // ========================================
         // RUN ON PAGE LOAD
         // ========================================
-        document.addEventListener('DOMContentLoaded', function () {
-            console.log('Page loaded, running automatic calculations...');
+        document.addEventListener('DOMContentLoaded', async function () {
+            console.log('Page loaded, loading configuration...');
+            await loadConfiguration();
+            console.log('Running automatic calculations...');
             updateDOM();
             console.log('All numbers updated successfully!');
-            console.log('To change any number, edit the CONFIG object at the top of the script and reload the page.');
+            console.log('To change values: Edit config.json on server, or use Admin Panel (saves to localStorage)');
         });
     </script>
 </body>
