@@ -1301,7 +1301,7 @@
 
                 <div class="staff-tile staff-tile-4">
                     <div class="staff-tile-icon">👥</div>
-                    <p class="staff-tile-value">24</p>
+                    <p class="staff-tile-value" id="totalStaffCount">24</p>
                     <p class="staff-tile-label">Total Staff</p>
                     <p style="font-size: 11px; color: #999; margin-top: 5px;">Professional Team</p>
                 </div>
@@ -1690,7 +1690,7 @@
                     <td>306,375</td>
                 </tr>
                 <tr>
-                    <td><strong>Salaries (24 Staff)</strong></td>
+                    <td><strong>Salaries (<span id="salariesStaffCount">24</span> Staff)</strong></td>
                     <td>$4,202</td>
                     <td>199,595</td>
                 </tr>
@@ -2136,6 +2136,9 @@
             currentActiveClasses: 8,          // Number of classes currently running (CHANGE THIS)
             totalClassrooms: 12,              // Total number of classrooms available (CHANGE THIS)
 
+            // Current Status - STAFF
+            currentStaff: 24,                 // Number of staff members
+
             // Tuition Rates
             currentTuitionRate: 205,          // Current monthly tuition per student (October-November 2025)
             futureTuitionRate: 252,           // Future tuition rate from December 2025
@@ -2417,6 +2420,18 @@
 
             // Update specific elements by ID BEFORE mass replacement
             // (These updates happen before innerHTML replace which would reset them)
+
+            // Update total staff count display
+            const totalStaffCount = document.getElementById('totalStaffCount');
+            if (totalStaffCount) {
+                totalStaffCount.textContent = CONFIG.currentStaff;
+            }
+
+            // Update salaries staff count
+            const salariesStaffCount = document.getElementById('salariesStaffCount');
+            if (salariesStaffCount) {
+                salariesStaffCount.textContent = CONFIG.currentStaff;
+            }
 
             // Update all instances throughout the document
             document.body.innerHTML = document.body.innerHTML

@@ -1300,7 +1300,7 @@
 
                 <div class="staff-tile staff-tile-4">
                     <div class="staff-tile-icon">👥</div>
-                    <p class="staff-tile-value">24</p>
+                    <p class="staff-tile-value" id="totalStaffCount">24</p>
                     <p class="staff-tile-label">Total Staff</p>
                     <p style="font-size: 11px; color: #999; margin-top: 5px;">Professional Team</p>
                 </div>
@@ -1689,7 +1689,7 @@
                     <td>306,375</td>
                 </tr>
                 <tr>
-                    <td><strong>Salaries (24 Staff)</strong></td>
+                    <td><strong>Salaries (<span id="salariesStaffCount">24</span> Staff)</strong></td>
                     <td>$4,202</td>
                     <td>199,595</td>
                 </tr>
@@ -2127,8 +2127,8 @@
         <ul class="checklist">
             <li>Fully operational business with established reputation</li>
             <li>All property, furniture, fixtures, and equipment</li>
-            <li>Current enrollment (65 paying children)</li>
-            <li>Trained staff (24 experienced employees)</li>
+            <li>Current enrollment (<span id="whatsIncludedStudents">65</span> paying children)</li>
+            <li>Trained staff (<span id="whatsIncludedStaff">24</span> experienced employees)</li>
             <li>Business licenses and permits</li>
             <li>Brand identity and marketing materials</li>
             <li>Premium Canadian curriculum system</li>
@@ -2210,10 +2210,13 @@
             // Current Status - STUDENTS
             currentStudents: 74,              // Current enrollment (CHANGED FROM 65 to 74)
             totalCapacity: 220,               // Maximum student capacity
-            
+
             // Current Status - CLASSES/ROOMS
             currentActiveClasses: 8,          // Number of classes currently running (CHANGE THIS)
             totalClassrooms: 12,              // Total number of classrooms available (CHANGE THIS)
+
+            // Current Status - STAFF
+            currentStaff: 24,                 // Number of staff members
             
             // Tuition Rates
             currentTuitionRate: 205,          // Current monthly tuition per student (October-November 2025)
@@ -2466,7 +2469,30 @@
                 const totalROI = (totalProfit / CONFIG.investmentAmount * 100).toFixed(1);
                 roiText.textContent = totalROI + '% on $' + investmentInK + 'K investment';
             }
-            
+
+            // Update What's Included section
+            const whatsIncludedStudents = document.getElementById('whatsIncludedStudents');
+            if (whatsIncludedStudents) {
+                whatsIncludedStudents.textContent = CONFIG.currentStudents;
+            }
+
+            const whatsIncludedStaff = document.getElementById('whatsIncludedStaff');
+            if (whatsIncludedStaff) {
+                whatsIncludedStaff.textContent = CONFIG.currentStaff;
+            }
+
+            // Update total staff count display
+            const totalStaffCount = document.getElementById('totalStaffCount');
+            if (totalStaffCount) {
+                totalStaffCount.textContent = CONFIG.currentStaff;
+            }
+
+            // Update salaries staff count
+            const salariesStaffCount = document.getElementById('salariesStaffCount');
+            if (salariesStaffCount) {
+                salariesStaffCount.textContent = CONFIG.currentStaff;
+            }
+
             // Update all instances throughout the document
             document.body.innerHTML = document.body.innerHTML
                 // Current students - all variations
