@@ -1239,10 +1239,10 @@
 
                 <div class="metric-card metric-card-4">
                     <div class="metric-icon">⏱️</div>
-                    <p class="metric-value">2.3</p>
+                    <p class="metric-value" id="paybackPeriodValue">2.3</p>
                     <p class="metric-label">Payback Period</p>
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: 70%;"></div>
+                        <div class="progress-fill" id="paybackPeriodBar" style="width: 70%;"></div>
                     </div>
                     <p class="metric-subtitle" id="paybackPeriodSubtitle">Years to Recover $500K Investment</p>
                 </div>
@@ -2311,6 +2311,10 @@
                 avgROI: calculateROI(year0AfterTax + year1AfterTax + year2AfterTax + year3AfterTax, CONFIG.investmentAmount) / 4
             };
 
+            // Payback Period (years to recover investment)
+            const avgAnnualProfit = (year1AfterTax + year2AfterTax + year3AfterTax) / 3;
+            metrics.paybackPeriod = avgAnnualProfit > 0 ? CONFIG.investmentAmount / avgAnnualProfit : 99;
+
             // Full Capacity Revenue
             metrics.fullCapacityMonthlyRevenue = calculateMonthlyRevenue(CONFIG.totalCapacity, CONFIG.currentTuitionRate);
 
@@ -2348,49 +2352,6 @@
             }
 
             console.log('Updating DOM with metrics:', metrics);
-
-            // Update investment amount displays
-            const investmentUSD = document.getElementById('investmentAmountUSD');
-            if (investmentUSD) {
-                investmentUSD.textContent = formatCurrency(CONFIG.investmentAmount) + ' USD';
-            }
-            
-            const investmentEGP = document.getElementById('investmentAmountEGP');
-            if (investmentEGP) {
-                const egpAmount = (CONFIG.investmentAmount * CONFIG.egpRate / 1000000).toFixed(1);
-                investmentEGP.textContent = egpAmount + ' Million EGP';
-            }
-            
-            const purchasePrice = document.getElementById('purchasePriceDisplay');
-            if (purchasePrice) {
-                const egpAmount = (CONFIG.investmentAmount * CONFIG.egpRate / 1000000).toFixed(1);
-                purchasePrice.textContent = formatCurrency(CONFIG.investmentAmount) + ' USD (' + egpAmount + ' Million EGP)';
-            }
-            
-            const investmentAmount = document.getElementById('investmentAmountDisplay');
-            if (investmentAmount) {
-                investmentAmount.textContent = formatCurrency(CONFIG.investmentAmount) + ' USD';
-            }
-            
-            // Update payback period subtitle
-            const paybackSubtitle = document.getElementById('paybackPeriodSubtitle');
-            if (paybackSubtitle) {
-                const investmentInK = (CONFIG.investmentAmount / 1000).toFixed(0);
-                paybackSubtitle.textContent = 'Years to Recover $' + investmentInK + 'K Investment';
-            }
-            
-            // Update 3-Year Total ROI text
-            const roiText = document.getElementById('totalROIText');
-            if (roiText) {
-                const investmentInK = (CONFIG.investmentAmount / 1000).toFixed(0);
-                // Calculate actual ROI based on metrics
-                const totalProfit = metrics.year1.afterTaxProfit + metrics.year2.afterTaxProfit + metrics.year3.afterTaxProfit;
-                const totalROI = (totalProfit / CONFIG.investmentAmount * 100).toFixed(1);
-                roiText.textContent = totalROI + '% on $' + investmentInK + 'K investment';
-            }
-
-            // Update specific elements by ID BEFORE mass replacement
-            // (These updates happen before innerHTML replace which would reset them)
 
             // Update all instances throughout the document
             // IMPORTANT: Always replace from ORIGINAL_HTML so updates work multiple times
@@ -2489,6 +2450,37 @@
             if (classOccupancyEl) classOccupancyEl.textContent = Math.round(metrics.classOccupancy) + '%';
             if (classOccupancyBarEl) classOccupancyBarEl.style.width = Math.round(metrics.classOccupancy) + '%';
             if (classOccupancyTextEl) classOccupancyTextEl.textContent = CONFIG.currentActiveClasses + ' of ' + CONFIG.totalClassrooms + ' classrooms active';
+
+            // Update payback period (must happen AFTER innerHTML replacement)
+            const paybackPeriodValueEl = document.getElementById('paybackPeriodValue');
+            const paybackPeriodBarEl = document.getElementById('paybackPeriodBar');
+            const paybackPeriodSubtitleEl = document.getElementById('paybackPeriodSubtitle');
+            if (paybackPeriodValueEl) paybackPeriodValueEl.textContent = metrics.paybackPeriod.toFixed(1);
+            if (paybackPeriodBarEl) {
+                const barWidth = Math.min(100, Math.max(0, 100 - (metrics.paybackPeriod / 5 * 100)));
+                paybackPeriodBarEl.style.width = barWidth + '%';
+            }
+            if (paybackPeriodSubtitleEl) {
+                const investmentInK = (CONFIG.investmentAmount / 1000).toFixed(0);
+                paybackPeriodSubtitleEl.textContent = 'Years to Recover $' + investmentInK + 'K Investment';
+            }
+
+            // Update investment amount displays (must happen AFTER innerHTML replacement)
+            const investmentUSDEl = document.getElementById('investmentAmountUSD');
+            const investmentEGPEl = document.getElementById('investmentAmountEGP');
+            const purchasePriceEl = document.getElementById('purchasePriceDisplay');
+            const investmentAmountEl = document.getElementById('investmentAmountDisplay');
+
+            if (investmentUSDEl) investmentUSDEl.textContent = formatCurrency(CONFIG.investmentAmount) + ' USD';
+            if (investmentEGPEl) {
+                const egpAmount = (CONFIG.investmentAmount * CONFIG.egpRate / 1000000).toFixed(1);
+                investmentEGPEl.textContent = egpAmount + ' Million EGP';
+            }
+            if (purchasePriceEl) {
+                const egpAmount = (CONFIG.investmentAmount * CONFIG.egpRate / 1000000).toFixed(1);
+                purchasePriceEl.textContent = formatCurrency(CONFIG.investmentAmount) + ' USD (' + egpAmount + ' Million EGP)';
+            }
+            if (investmentAmountEl) investmentAmountEl.textContent = formatCurrency(CONFIG.investmentAmount) + ' USD';
 
             console.log('DOM update complete!');
             console.log('Key values updated:');
