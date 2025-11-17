@@ -2392,10 +2392,18 @@
             return metrics;
         }
 
+        // Store original HTML template for reliable updates
+        let ORIGINAL_HTML = null;
+
         // UPDATE DOM WITH CALCULATED VALUES
         function updateDOM() {
+            // Store original HTML on first run
+            if (!ORIGINAL_HTML) {
+                ORIGINAL_HTML = document.body.innerHTML;
+            }
+
             const metrics = calculateAllMetrics();
-            
+
             console.log('Updating DOM with metrics:', metrics);
             
             // Update investment amount displays
@@ -2434,7 +2442,8 @@
             }
             
             // Update all instances throughout the document
-            document.body.innerHTML = document.body.innerHTML
+            // IMPORTANT: Always replace from ORIGINAL_HTML so updates work multiple times
+            document.body.innerHTML = ORIGINAL_HTML
                 // Current students - all variations
                 .replace(/\b65\s+children/g, CONFIG.currentStudents + ' children')
                 .replace(/\b74\s+children/g, CONFIG.currentStudents + ' children')
