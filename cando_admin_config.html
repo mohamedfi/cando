@@ -449,24 +449,49 @@
             
             <!-- BUTTONS -->
             <div class="button-group">
-                <button type="submit" class="btn-primary">💾 Update & Save Configuration</button>
-                <button type="button" class="btn-secondary" onclick="loadSavedConfig()">🔄 Load Last Saved</button>
+                <button type="submit" class="btn-primary">💾 Save to Server (config.json)</button>
+                <button type="button" class="btn-secondary" onclick="loadFromServer()">🌐 Load from Server</button>
+                <button type="button" class="btn-secondary" onclick="loadSavedConfig()">🔄 Load from Browser</button>
                 <button type="button" class="btn-success" onclick="resetToDefaults()">↩️ Reset to Defaults</button>
             </div>
         </form>
-        
+
         <div class="info-box" style="margin-top: 30px;">
-            <strong>ℹ️ Note:</strong> After saving, open your presentation files to see the updated numbers. 
-            The configuration is saved in your browser and will persist until you clear your browser data.
+            <strong>ℹ️ How It Works:</strong><br>
+            • <strong>Save to Server:</strong> Updates config.json on the server - all investors see new numbers immediately<br>
+            • <strong>Load from Server:</strong> Shows what's currently on the server (what investors see)<br>
+            • <strong>Load from Browser:</strong> Loads your last locally saved configuration<br>
+            • <strong>Reset to Defaults:</strong> Resets all fields to factory defaults
         </div>
     </div>
     
     <script>
         // Load saved configuration on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            loadSavedConfig();
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Try to load from server first, fall back to localStorage
+            try {
+                const response = await fetch('config.json');
+                if (response.ok) {
+                    const config = await response.json();
+                    Object.keys(config).forEach(key => {
+                        const input = document.getElementById(key);
+                        if (input) {
+                            input.value = config[key];
+                        }
+                    });
+                    console.log('✅ Loaded initial config from server');
+                } else {
+                    // Fallback to localStorage
+                    loadSavedConfig();
+                }
+            } catch (error) {
+                // Fallback to localStorage if server fetch fails
+                console.log('ℹ️ Could not load from server, trying localStorage');
+                loadSavedConfig();
+            }
+
             updatePreview();
-            
+
             // Add input listeners for live preview
             document.querySelectorAll('input').forEach(input => {
                 input.addEventListener('input', updatePreview);
@@ -474,9 +499,9 @@
         });
         
         // Save configuration
-        document.getElementById('configForm').addEventListener('submit', function(e) {
+        document.getElementById('configForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            
+
             const config = {
                 currentStudents: parseFloat(document.getElementById('currentStudents').value),
                 totalCapacity: parseFloat(document.getElementById('totalCapacity').value),
@@ -501,23 +526,54 @@
                 year3TuitionRate: parseFloat(document.getElementById('year3TuitionRate').value),
                 year3MonthlyExpenses: parseFloat(document.getElementById('year3MonthlyExpenses').value)
             };
-            
+
+            // Save to localStorage (for local backup)
             localStorage.setItem('candoNurseryConfig', JSON.stringify(config));
-            
+
+            // Save to server (config.json)
+            let serverSaveSuccess = false;
+            try {
+                const response = await fetch('save_config.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(config)
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    serverSaveSuccess = true;
+                    console.log('✅ Configuration saved to server:', result);
+                } else {
+                    console.error('⚠️ Server save failed:', result.error || 'Unknown error');
+                }
+            } catch (error) {
+                console.error('⚠️ Could not save to server:', error);
+            }
+
             // Show success message
             const alert = document.getElementById('successAlert');
+            if (serverSaveSuccess) {
+                alert.innerHTML = '✅ Configuration saved successfully to server! All investors will see the updated numbers.';
+                alert.className = 'alert alert-success';
+            } else {
+                alert.innerHTML = '⚠️ Saved locally only. Server save failed - check console for details. Configuration will work on your browser but may not update for investors.';
+                alert.className = 'alert alert-info';
+            }
             alert.style.display = 'block';
             setTimeout(() => {
                 alert.style.display = 'none';
-            }, 5000);
-            
+            }, 7000);
+
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            
+
             console.log('Configuration saved:', config);
         });
         
-        // Load saved configuration
+        // Load saved configuration from localStorage
         function loadSavedConfig() {
             const saved = localStorage.getItem('candoNurseryConfig');
             if (saved) {
@@ -529,10 +585,37 @@
                     }
                 });
                 updatePreview();
-                console.log('Loaded saved configuration');
+                console.log('Loaded configuration from localStorage');
+                alert('✅ Loaded configuration from browser storage');
+            } else {
+                alert('ℹ️ No saved configuration found in browser');
             }
         }
-        
+
+        // Load configuration from server (config.json)
+        async function loadFromServer() {
+            try {
+                const response = await fetch('config.json');
+                if (response.ok) {
+                    const config = await response.json();
+                    Object.keys(config).forEach(key => {
+                        const input = document.getElementById(key);
+                        if (input) {
+                            input.value = config[key];
+                        }
+                    });
+                    updatePreview();
+                    console.log('✅ Loaded configuration from server');
+                    alert('✅ Loaded current configuration from server (what investors see)');
+                } else {
+                    alert('⚠️ Could not load from server. File may not exist yet.');
+                }
+            } catch (error) {
+                console.error('Error loading from server:', error);
+                alert('⚠️ Error loading from server: ' + error.message);
+            }
+        }
+
         // Reset to defaults
         function resetToDefaults() {
             if (confirm('Are you sure you want to reset all values to defaults?')) {
