@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Dynamic Investment Text Updates</title>
+    <style>
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #f5f7fa;
+        }
+        .test-section {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #0052CC;
+            border-bottom: 2px solid #0052CC;
+            padding-bottom: 10px;
+        }
+        .item {
+            padding: 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #0052CC;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .value {
+            font-size: 20px;
+            color: #0052CC;
+            margin: 5px 0;
+        }
+        .old-value {
+            color: #dc3545;
+            text-decoration: line-through;
+        }
+        .new-value {
+            color: #28a745;
+        }
+        button {
+            padding: 12px 24px;
+            background: #0052CC;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #003d99;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            border: 1px solid #c3e6cb;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            border: 1px solid #bee5eb;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: #f8f9fa;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 Test Dynamic Investment Text Updates</h1>
+    
+    <div class="test-section">
+        <h2>Test Different Investment Amounts</h2>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button onclick="setInvestment(500000)">$500,000 (Default)</button>
+            <button onclick="setInvestment(650000)">$650,000</button>
+            <button onclick="setInvestment(750000)">$750,000</button>
+            <button onclick="setInvestment(1000000)">$1,000,000</button>
+            <button onclick="clearConfig()">Clear All Settings</button>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Dynamic Text Elements That Should Update</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Element</th>
+                    <th>Old (Hardcoded)</th>
+                    <th>New (Dynamic)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Investment Amount USD</strong></td>
+                    <td class="old-value">$500,000 USD</td>
+                    <td class="new-value" id="testInvestmentUSD">-</td>
+                </tr>
+                <tr>
+                    <td><strong>Investment Amount EGP</strong></td>
+                    <td class="old-value">23.8 Million EGP</td>
+                    <td class="new-value" id="testInvestmentEGP">-</td>
+                </tr>
+                <tr>
+                    <td><strong>Payback Period Subtitle</strong></td>
+                    <td class="old-value">Years to Recover $500K Investment</td>
+                    <td class="new-value" id="testPaybackSubtitle">-</td>
+                </tr>
+                <tr>
+                    <td><strong>3-Year Total ROI Text</strong></td>
+                    <td class="old-value">212.8% on $500K investment</td>
+                    <td class="new-value" id="testROIText">-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="test-section">
+        <h2>Current Configuration in localStorage</h2>
+        <div id="configDisplay" class="info">Loading...</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Testing Instructions</h2>
+        <ol>
+            <li>Click one of the investment amount buttons above</li>
+            <li>Watch the "New (Dynamic)" column update with the correct values</li>
+            <li>Open the actual documents in new tabs to verify they show the same values:
+                <ul>
+                    <li><a href="cando_business_investors.html" target="_blank">Business Investors Document</a></li>
+                    <li><a href="cando_prospectus_complete.html" target="_blank">Prospectus Complete Document</a></li>
+                </ul>
+            </li>
+            <li>Refresh those pages to see the updated values</li>
+        </ol>
+    </div>
+    
+    <div id="message"></div>
+    
+    <script>
+        function loadConfig() {
+            const saved = localStorage.getItem('candoNurseryConfig');
+            const configDiv = document.getElementById('configDisplay');
+            
+            if (saved) {
+                const config = JSON.parse(saved);
+                const investmentAmount = config.investmentAmount || 500000;
+                const egpRate = config.egpRate || 47.6;
+                const investmentInK = (investmentAmount / 1000).toFixed(0);
+                const investmentEGP = (investmentAmount * egpRate / 1000000).toFixed(1);
+                
+                // Update test display
+                document.getElementById('testInvestmentUSD').textContent = '$' + investmentAmount.toLocaleString() + ' USD';
+                document.getElementById('testInvestmentEGP').textContent = investmentEGP + ' Million EGP';
+                document.getElementById('testPaybackSubtitle').textContent = 'Years to Recover $' + investmentInK + 'K Investment';
+                
+                // Calculate ROI (simplified for testing)
+                const estimatedROI = (1064234 / investmentAmount * 100).toFixed(1); // Using default profit
+                document.getElementById('testROIText').textContent = estimatedROI + '% on $' + investmentInK + 'K investment';
+                
+                // Display full config
+                configDiv.innerHTML = '<pre>' + JSON.stringify(config, null, 2) + '</pre>';
+            } else {
+                configDiv.textContent = 'No configuration found in localStorage';
+                document.getElementById('testInvestmentUSD').textContent = 'No config';
+                document.getElementById('testInvestmentEGP').textContent = 'No config';
+                document.getElementById('testPaybackSubtitle').textContent = 'No config';
+                document.getElementById('testROIText').textContent = 'No config';
+            }
+        }
+        
+        function setInvestment(amount) {
+            // Load existing config or create new one
+            let config = {};
+            const saved = localStorage.getItem('candoNurseryConfig');
+            if (saved) {
+                config = JSON.parse(saved);
+            }
+            
+            // Update investment amount
+            config.investmentAmount = amount;
+            
+            // Set default values if not present
+            config.egpRate = config.egpRate || 47.6;
+            config.currentStudents = config.currentStudents || 74;
+            config.totalCapacity = config.totalCapacity || 220;
+            config.currentActiveClasses = config.currentActiveClasses || 8;
+            config.totalClassrooms = config.totalClassrooms || 12;
+            config.currentTuitionRate = config.currentTuitionRate || 205;
+            config.futureTuitionRate = config.futureTuitionRate || 252;
+            config.currentMonthlyExpenses = config.currentMonthlyExpenses || 12932;
+            config.taxRate = config.taxRate || 0.20;
+            config.year0TuitionRate = config.year0TuitionRate || 205;
+            config.year0MonthlyExpenses = config.year0MonthlyExpenses || 17018;
+            config.year1Students = config.year1Students || 110;
+            config.year1TuitionRate = config.year1TuitionRate || 252;
+            config.year1MonthlyExpenses = config.year1MonthlyExpenses || 17018;
+            config.year2Students = config.year2Students || 165;
+            config.year2TuitionRate = config.year2TuitionRate || 277;
+            config.year2MonthlyExpenses = config.year2MonthlyExpenses || 17018;
+            config.year3Students = config.year3Students || 220;
+            config.year3TuitionRate = config.year3TuitionRate || 305;
+            config.year3MonthlyExpenses = config.year3MonthlyExpenses || 17018;
+            
+            // Save to localStorage
+            localStorage.setItem('candoNurseryConfig', JSON.stringify(config));
+            
+            // Show success message
+            const msg = document.getElementById('message');
+            msg.innerHTML = '<div class="success">✅ Investment amount set to <strong>$' + 
+                          amount.toLocaleString() + 
+                          '</strong>. Refresh the Business Investors and Prospectus pages to see all text updates.</div>';
+            
+            // Reload display
+            loadConfig();
+        }
+        
+        function clearConfig() {
+            localStorage.removeItem('candoNurseryConfig');
+            const msg = document.getElementById('message');
+            msg.innerHTML = '<div class="success">🗑️ Configuration cleared. Documents will use default values.</div>';
+            loadConfig();
+        }
+        
+        // Load on page load
+        document.addEventListener('DOMContentLoaded', loadConfig);
+    </script>
+</body>
+</html>

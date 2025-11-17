@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CanDO Nursery - Admin Configuration</title>
+    <style>
+        :root {
+            --cando-blue: #0052CC;
+            --cando-dark-blue: #003d99;
+            --cando-light-blue: #e8f0fe;
+            --cando-green: #4CAF50;
+            --cando-red: #FF5252;
+        }
+        
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0fe 100%);
+            padding: 20px;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: var(--cando-blue);
+            border-bottom: 3px solid var(--cando-blue);
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+        
+        h2 {
+            color: var(--cando-blue);
+            border-left: 4px solid var(--cando-blue);
+            padding-left: 15px;
+            margin-top: 30px;
+            font-size: 20px;
+        }
+        
+        .form-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .label-help {
+            font-size: 12px;
+            color: #666;
+            font-weight: normal;
+            margin-left: 5px;
+        }
+        
+        input[type="number"],
+        input[type="text"] {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="number"]:focus,
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--cando-blue);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--cando-blue), var(--cando-dark-blue));
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 82, 204, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        .btn-success {
+            background: var(--cando-green);
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #45a049;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-weight: bold;
+            display: none;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .alert-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        .current-values {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid #ffc107;
+        }
+        
+        .current-values h3 {
+            margin-top: 0;
+            color: #856404;
+        }
+        
+        .preview-section {
+            background: var(--cando-light-blue);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .preview-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .preview-card {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            border: 2px solid var(--cando-blue);
+        }
+        
+        .preview-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .preview-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--cando-blue);
+        }
+        
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid var(--cando-blue);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 CanDO Nursery - Admin Configuration Panel</h1>
+        
+        <div class="info-box">
+            <strong>📌 How to Use:</strong> Fill in the form below with your current numbers, then click "Update & Save". 
+            Both presentation files will automatically update with these values when you open them!
+        </div>
+        
+        <div id="successAlert" class="alert alert-success">
+            ✅ Configuration saved successfully! Your presentation files will now show the updated numbers.
+        </div>
+        
+        <form id="configForm">
+            <!-- CURRENT STUDENTS SECTION -->
+            <div class="form-section">
+                <h2>👶 Current Students & Capacity</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Current Students Enrolled
+                            <span class="label-help">(Total enrolled students)</span>
+                        </label>
+                        <input type="number" id="currentStudents" name="currentStudents" value="74" required min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Total Student Capacity
+                            <span class="label-help">(Maximum students possible)</span>
+                        </label>
+                        <input type="number" id="totalCapacity" name="totalCapacity" value="220" required min="1">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CLASSROOMS SECTION -->
+            <div class="form-section">
+                <h2>🏫 Classrooms & Classes</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Active Classes/Programs
+                            <span class="label-help">(Currently running)</span>
+                        </label>
+                        <input type="number" id="currentActiveClasses" name="currentActiveClasses" value="8" required min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Total Classrooms Available
+                            <span class="label-help">(Total rooms you have)</span>
+                        </label>
+                        <input type="number" id="totalClassrooms" name="totalClassrooms" value="12" required min="1">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TUITION RATES SECTION -->
+            <div class="form-section">
+                <h2>💵 Tuition Rates (Per Student)</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Current Monthly Tuition
+                            <span class="label-help">(October-November 2025)</span>
+                        </label>
+                        <input type="number" id="currentTuitionRate" name="currentTuitionRate" value="205" required min="0" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label>Future Monthly Tuition
+                            <span class="label-help">(From December 2025)</span>
+                        </label>
+                        <input type="number" id="futureTuitionRate" name="futureTuitionRate" value="252" required min="0" step="0.01">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXPENSES SECTION -->
+            <div class="form-section">
+                <h2>💰 Monthly Operating Expenses</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Current Monthly Expenses
+                            <span class="label-help">(Total operating costs)</span>
+                        </label>
+                        <input type="number" id="currentMonthlyExpenses" name="currentMonthlyExpenses" value="12932" required min="0" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label>Projected Monthly Expenses
+                            <span class="label-help">(For growth scenarios)</span>
+                        </label>
+                        <input type="number" id="year0MonthlyExpenses" name="year0MonthlyExpenses" value="17018" required min="0" step="0.01">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- INVESTMENT SECTION -->
+            <div class="form-section">
+                <h2>📊 Investment Details</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Investment Amount (USD)
+                            <span class="label-help">(Purchase price)</span>
+                        </label>
+                        <input type="number" id="investmentAmount" name="investmentAmount" value="500000" required min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>EGP Exchange Rate
+                            <span class="label-help">(USD to EGP)</span>
+                        </label>
+                        <input type="number" id="egpRate" name="egpRate" value="47.6" required min="0" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label>Annual Tax Rate (%)
+                            <span class="label-help">(As decimal: 0.20 = 20%)</span>
+                        </label>
+                        <input type="number" id="taxRate" name="taxRate" value="0.20" required min="0" max="1" step="0.01">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- YEAR 1 PROJECTIONS -->
+            <div class="form-section">
+                <h2>📈 Year 1 Projections (50% Capacity - Breakeven)</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Year 1 Students
+                            <span class="label-help">(Breakeven target)</span>
+                        </label>
+                        <input type="number" id="year1Students" name="year1Students" value="110" required min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Year 1 Monthly Tuition
+                            <span class="label-help">(Dec 2025 rate)</span>
+                        </label>
+                        <input type="number" id="year1TuitionRate" name="year1TuitionRate" value="252" required min="0" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label>Year 1 Monthly Expenses</label>
+                        <input type="number" id="year1MonthlyExpenses" name="year1MonthlyExpenses" value="17018" required min="0" step="0.01">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- YEAR 2 PROJECTIONS -->
+            <div class="form-section">
+                <h2>📈 Year 2 Projections (75% Capacity)</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Year 2 Students</label>
+                        <input type="number" id="year2Students" name="year2Students" value="165" required min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Year 2 Monthly Tuition</label>
+                        <input type="number" id="year2TuitionRate" name="year2TuitionRate" value="277" required min="0" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label>Year 2 Monthly Expenses</label>
+                        <input type="number" id="year2MonthlyExpenses" name="year2MonthlyExpenses" value="17018" required min="0" step="0.01">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- YEAR 3 PROJECTIONS -->
+            <div class="form-section">
+                <h2>📈 Year 3 Projections (100% Capacity)</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Year 3 Students</label>
+                        <input type="number" id="year3Students" name="year3Students" value="220" required min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Year 3 Monthly Tuition</label>
+                        <input type="number" id="year3TuitionRate" name="year3TuitionRate" value="305" required min="0" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label>Year 3 Monthly Expenses</label>
+                        <input type="number" id="year3MonthlyExpenses" name="year3MonthlyExpenses" value="17018" required min="0" step="0.01">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- LIVE PREVIEW -->
+            <div class="preview-section">
+                <h2>📊 Live Preview - Current Calculations</h2>
+                <div class="preview-grid">
+                    <div class="preview-card">
+                        <div class="preview-label">Student Occupancy</div>
+                        <div class="preview-value" id="previewOccupancy">34%</div>
+                    </div>
+                    <div class="preview-card">
+                        <div class="preview-label">Monthly Revenue</div>
+                        <div class="preview-value" id="previewRevenue">$15,170</div>
+                    </div>
+                    <div class="preview-card">
+                        <div class="preview-label">Monthly Profit</div>
+                        <div class="preview-value" id="previewProfit">$2,238</div>
+                    </div>
+                    <div class="preview-card">
+                        <div class="preview-label">Class Occupancy</div>
+                        <div class="preview-value" id="previewClassOccupancy">67%</div>
+                    </div>
+                    <div class="preview-card">
+                        <div class="preview-label">Future Monthly Revenue</div>
+                        <div class="preview-value" id="previewFutureRevenue">$18,648</div>
+                    </div>
+                    <div class="preview-card">
+                        <div class="preview-label">Future Monthly Profit</div>
+                        <div class="preview-value" id="previewFutureProfit">$5,716</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BUTTONS -->
+            <div class="button-group">
+                <button type="submit" class="btn-primary">💾 Update & Save Configuration</button>
+                <button type="button" class="btn-secondary" onclick="loadSavedConfig()">🔄 Load Last Saved</button>
+                <button type="button" class="btn-success" onclick="resetToDefaults()">↩️ Reset to Defaults</button>
+            </div>
+        </form>
+        
+        <div class="info-box" style="margin-top: 30px;">
+            <strong>ℹ️ Note:</strong> After saving, open your presentation files to see the updated numbers. 
+            The configuration is saved in your browser and will persist until you clear your browser data.
+        </div>
+    </div>
+    
+    <script>
+        // Load saved configuration on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSavedConfig();
+            updatePreview();
+            
+            // Add input listeners for live preview
+            document.querySelectorAll('input').forEach(input => {
+                input.addEventListener('input', updatePreview);
+            });
+        });
+        
+        // Save configuration
+        document.getElementById('configForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const config = {
+                currentStudents: parseFloat(document.getElementById('currentStudents').value),
+                totalCapacity: parseFloat(document.getElementById('totalCapacity').value),
+                currentActiveClasses: parseFloat(document.getElementById('currentActiveClasses').value),
+                totalClassrooms: parseFloat(document.getElementById('totalClassrooms').value),
+                currentTuitionRate: parseFloat(document.getElementById('currentTuitionRate').value),
+                futureTuitionRate: parseFloat(document.getElementById('futureTuitionRate').value),
+                currentMonthlyExpenses: parseFloat(document.getElementById('currentMonthlyExpenses').value),
+                investmentAmount: parseFloat(document.getElementById('investmentAmount').value),
+                egpRate: parseFloat(document.getElementById('egpRate').value),
+                taxRate: parseFloat(document.getElementById('taxRate').value),
+                year0TuitionRate: parseFloat(document.getElementById('futureTuitionRate').value),
+                year0MonthlyExpenses: parseFloat(document.getElementById('year0MonthlyExpenses').value),
+                year1Students: parseFloat(document.getElementById('year1Students').value),
+                year1TuitionRate: parseFloat(document.getElementById('year1TuitionRate').value),
+                year1MonthlyExpenses: parseFloat(document.getElementById('year1MonthlyExpenses').value),
+                year2Students: parseFloat(document.getElementById('year2Students').value),
+                year2TuitionRate: parseFloat(document.getElementById('year2TuitionRate').value),
+                year2MonthlyExpenses: parseFloat(document.getElementById('year2MonthlyExpenses').value),
+                year3Students: parseFloat(document.getElementById('year3Students').value),
+                year3TuitionRate: parseFloat(document.getElementById('year3TuitionRate').value),
+                year3MonthlyExpenses: parseFloat(document.getElementById('year3MonthlyExpenses').value)
+            };
+            
+            localStorage.setItem('candoNurseryConfig', JSON.stringify(config));
+            
+            // Show success message
+            const alert = document.getElementById('successAlert');
+            alert.style.display = 'block';
+            setTimeout(() => {
+                alert.style.display = 'none';
+            }, 5000);
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            console.log('Configuration saved:', config);
+        });
+        
+        // Load saved configuration
+        function loadSavedConfig() {
+            const saved = localStorage.getItem('candoNurseryConfig');
+            if (saved) {
+                const config = JSON.parse(saved);
+                Object.keys(config).forEach(key => {
+                    const input = document.getElementById(key);
+                    if (input) {
+                        input.value = config[key];
+                    }
+                });
+                updatePreview();
+                console.log('Loaded saved configuration');
+            }
+        }
+        
+        // Reset to defaults
+        function resetToDefaults() {
+            if (confirm('Are you sure you want to reset all values to defaults?')) {
+                document.getElementById('currentStudents').value = 74;
+                document.getElementById('totalCapacity').value = 220;
+                document.getElementById('currentActiveClasses').value = 8;
+                document.getElementById('totalClassrooms').value = 12;
+                document.getElementById('currentTuitionRate').value = 205;
+                document.getElementById('futureTuitionRate').value = 252;
+                document.getElementById('currentMonthlyExpenses').value = 12932;
+                document.getElementById('investmentAmount').value = 500000;
+                document.getElementById('egpRate').value = 47.6;
+                document.getElementById('taxRate').value = 0.20;
+                document.getElementById('year0MonthlyExpenses').value = 17018;
+                document.getElementById('year1Students').value = 110;
+                document.getElementById('year1TuitionRate').value = 252;
+                document.getElementById('year1MonthlyExpenses').value = 17018;
+                document.getElementById('year2Students').value = 165;
+                document.getElementById('year2TuitionRate').value = 277;
+                document.getElementById('year2MonthlyExpenses').value = 17018;
+                document.getElementById('year3Students').value = 220;
+                document.getElementById('year3TuitionRate').value = 305;
+                document.getElementById('year3MonthlyExpenses').value = 17018;
+                updatePreview();
+            }
+        }
+        
+        // Update live preview
+        function updatePreview() {
+            const students = parseFloat(document.getElementById('currentStudents').value) || 0;
+            const capacity = parseFloat(document.getElementById('totalCapacity').value) || 1;
+            const activeClasses = parseFloat(document.getElementById('currentActiveClasses').value) || 0;
+            const totalClassrooms = parseFloat(document.getElementById('totalClassrooms').value) || 1;
+            const currentRate = parseFloat(document.getElementById('currentTuitionRate').value) || 0;
+            const futureRate = parseFloat(document.getElementById('futureTuitionRate').value) || 0;
+            const expenses = parseFloat(document.getElementById('currentMonthlyExpenses').value) || 0;
+            
+            const occupancy = (students / capacity * 100).toFixed(1);
+            const classOccupancy = (activeClasses / totalClassrooms * 100).toFixed(1);
+            const revenue = students * currentRate;
+            const futureRevenue = students * futureRate;
+            const profit = revenue - expenses;
+            const futureProfit = futureRevenue - expenses;
+            
+            document.getElementById('previewOccupancy').textContent = occupancy + '%';
+            document.getElementById('previewClassOccupancy').textContent = classOccupancy + '%';
+            document.getElementById('previewRevenue').textContent = '$' + revenue.toLocaleString();
+            document.getElementById('previewProfit').textContent = '$' + profit.toLocaleString();
+            document.getElementById('previewFutureRevenue').textContent = '$' + futureRevenue.toLocaleString();
+            document.getElementById('previewFutureProfit').textContent = '$' + futureProfit.toLocaleString();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,2570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CanDO Nursery - Investment Prospectus</title>
+    <style>
+        :root {
+            --cando-blue: #0052CC;
+            --cando-dark-blue: #003d99;
+            --cando-light-blue: #e8f0fe;
+            --cando-yellow: #FFD700;
+            --cando-red: #FF5252;
+            --cando-green: #4CAF50;
+            --cando-orange: #FF9800;
+        }
+
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            width: 90%;
+            margin: 0 auto;
+            padding: 15px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0fe 100%);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                width: 95%;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                width: 98%;
+                padding: 8px;
+            }
+        }
+
+        .page {
+            background-color: white;
+            padding: 40px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .page {
+                padding: 25px;
+                margin: 15px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page {
+                padding: 15px;
+                margin: 10px 0;
+            }
+        }
+
+        .page-break {
+            page-break-after: always;
+            margin: 40px 0;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 4px solid var(--cando-blue);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                margin-bottom: 20px;
+                padding-bottom: 15px;
+            }
+        }
+
+        .logo-placeholder {
+            background: var(--cando-dalightrk-blue);
+            padding: 20px;
+            border-radius: 8px;
+            border-width: 10px;
+            color: var(--cando-dark-blue);
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 4px 6px rgba(0, 82, 204, 0.2);
+        }
+
+        .logo-image {
+            max-width: 240px;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
+
+        h1 {
+            color: var(--cando-blue);
+            border-bottom: 3px solid var(--cando-blue);
+            padding-bottom: 10px;
+            font-size: 28px;
+            margin-top: 0;
+        }
+
+        h2 {
+            color: var(--cando-blue);
+            margin-top: 30px;
+            font-size: 20px;
+            border-left: 4px solid var(--cando-blue);
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: var(--cando-blue);
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .color-accent-bar {
+            height: 8px;
+            background: linear-gradient(90deg, var(--cando-blue) 0%, var(--cando-yellow) 25%, var(--cando-red) 50%, var(--cando-green) 75%, var(--cando-orange) 100%);
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .main-highlight {
+            background: linear-gradient(135deg, var(--cando-blue) 0%, var(--cando-dark-blue) 100%);
+            border-radius: 15px;
+            padding: 50px 40px;
+            margin: 30px 0;
+            box-shadow: 0 12px 30px rgba(0, 82, 204, 0.3);
+            text-align: center;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .main-highlight {
+                padding: 30px 20px;
+                margin: 20px 0;
+                border-radius: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-highlight {
+                padding: 20px 15px;
+                margin: 15px 0;
+            }
+        }
+
+        .main-highlight h2 {
+            font-size: 42px;
+            border: none;
+            padding: 0;
+            margin: 0 0 40px 0;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            line-height: 1.3;
+        }
+
+        .highlight-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .highlight-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        .card {
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-location {
+            background: white;
+        }
+
+        .card-price {
+            background: linear-gradient(135deg, #FFD700 0%, #FFC700 100%);
+            border: 3px solid #FF9800;
+        }
+
+        .card-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .card-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        .card-location .card-label {
+            color: #999;
+        }
+
+        .card-price .card-label {
+            color: #333;
+        }
+
+        .card-value {
+            font-size: 28px;
+            font-weight: 900;
+            margin: 15px 0 5px 0;
+            line-height: 1.3;
+        }
+
+        .card-location .card-value {
+            color: var(--cando-blue);
+        }
+
+        .card-price .card-value {
+            color: var(--cando-dark-blue);
+        }
+
+        .card-subtext {
+            font-size: 13px;
+            margin: 5px 0 0 0;
+        }
+
+        .card-location .card-subtext {
+            color: #666;
+        }
+
+        .card-price .card-subtext {
+            color: #555;
+        }
+
+        .metrics-section h3 {
+            text-align: center;
+            color: var(--cando-blue);
+            font-size: 24px;
+            margin: 30px 0 25px 0;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 20px 0 40px 0;
+        }
+
+        @media (max-width: 1024px) {
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+
+        .metric-card {
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            border: 2px solid;
+        }
+
+        .metric-card-1 {
+            background: linear-gradient(135deg, var(--cando-light-blue) 0%, #e3f2fd 100%);
+            border-color: var(--cando-blue);
+        }
+
+        .metric-card-2 {
+            background: linear-gradient(135deg, #fff3cd 0%, #fffacd 100%);
+            border-color: var(--cando-orange);
+        }
+
+        .metric-card-3 {
+            background: linear-gradient(135deg, #d4edda 0%, #e8f5e9 100%);
+            border-color: var(--cando-green);
+        }
+
+        .metric-card-4 {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-color: var(--cando-red);
+        }
+
+        .metric-icon {
+            font-size: 45px;
+            margin-bottom: 12px;
+        }
+
+        .metric-value {
+            font-size: 38px;
+            font-weight: 900;
+            margin: 12px 0 8px 0;
+            line-height: 1.2;
+        }
+
+        .metric-card-1 .metric-value {
+            color: var(--cando-dark-blue);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .metric-card-2 .metric-value {
+            color: #CC8800;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .metric-card-3 .metric-value {
+            color: #2d5016;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .metric-card-4 .metric-value {
+            color: #c41c1c;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .metric-label {
+            font-size: 13px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .progress-bar {
+            background: rgba(0, 0, 0, 0.1);
+            height: 10px;
+            border-radius: 5px;
+            margin: 14px 0;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        .metric-card-1 .progress-fill {
+            background: linear-gradient(90deg, var(--cando-blue), var(--cando-dark-blue));
+        }
+
+        .metric-card-2 .progress-fill {
+            background: linear-gradient(90deg, var(--cando-orange), #FF9800);
+        }
+
+        .metric-card-3 .progress-fill {
+            background: linear-gradient(90deg, var(--cando-green), #45a049);
+        }
+
+        .metric-card-4 .progress-fill {
+            background: linear-gradient(90deg, var(--cando-red), #FF5252);
+        }
+
+        .metric-subtitle {
+            font-size: 12px;
+            color: #333;
+            margin-top: 8px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .financial-box {
+            background: linear-gradient(135deg, var(--cando-light-blue) 0%, #f0f8ff 100%);
+            border-left: 4px solid var(--cando-blue);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .financial-box h3 {
+            margin: 0 0 20px 0;
+            color: var(--cando-blue);
+            font-size: 18px;
+            border: none;
+            padding: 0;
+        }
+
+        .financial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .financial-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        .financial-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .financial-item-label {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+        }
+
+        .financial-item-value {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .financial-item:nth-child(3) {
+            border: 2px solid var(--cando-green);
+        }
+
+        .financial-item:nth-child(3) .financial-item-value {
+            color: var(--cando-green);
+        }
+
+        .financial-item:nth-child(1) .financial-item-value {
+            color: var(--cando-green);
+        }
+
+        .financial-item:nth-child(2) .financial-item-value {
+            color: var(--cando-orange);
+        }
+
+        .highlights-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #fffacd 100%);
+            border-left: 4px solid var(--cando-orange);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .highlights-box h3 {
+            margin: 0 0 15px 0;
+            color: var(--cando-blue);
+            font-size: 18px;
+            border: none;
+            padding: 0;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .highlights-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 22px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            h3 {
+                font-size: 14px;
+            }
+
+            .metric-value {
+                font-size: 28px;
+            }
+
+            .main-highlight h2 {
+                font-size: 28px;
+            }
+        }
+
+        .highlight-item {
+            font-size: 13px;
+            margin: 0;
+        }
+
+        /* TABLE STYLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 768px) {
+            .table-wrapper {
+                margin: 15px -25px;
+                padding: 0 25px;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            th,
+            td {
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            table {
+                font-size: 11px;
+            }
+
+            th,
+            td {
+                padding: 6px 4px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .table-wrapper {
+                margin: 12px -15px;
+                padding: 0 15px;
+            }
+
+            table {
+                font-size: 10px;
+                min-width: 100%;
+            }
+
+            th,
+            td {
+                padding: 5px 3px;
+            }
+
+            th:nth-child(3),
+            td:nth-child(3) {
+                display: none;
+            }
+        }
+
+        th {
+            background: linear-gradient(135deg, var(--cando-blue) 0%, var(--cando-dark-blue) 100%);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr.total {
+            background: linear-gradient(135deg, var(--cando-light-blue) 0%, #e3f2fd 100%);
+            font-weight: bold;
+        }
+
+        tr.positive {
+            color: var(--cando-green);
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, var(--cando-light-blue) 0%, #f0f8ff 100%);
+            border-left: 4px solid var(--cando-blue);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .success {
+            background: linear-gradient(135deg, #d4edda 0%, #e8f5e9 100%);
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            border-left: 4px solid var(--cando-green);
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            border-left: 4px solid var(--cando-blue);
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--cando-green);
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* GALLERY STYLES */
+        .gallery-section {
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0fe 100%);
+            border-radius: 12px;
+            border: 2px solid var(--cando-blue);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 1200px) {
+            .gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 82, 204, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 1;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 82, 204, 0.4);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 82, 204, 0.8);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+
+        /* MODAL STYLES */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 90%;
+            max-width: 800px;
+            padding: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .modal-close:hover,
+        .modal-close:focus {
+            color: #bbb;
+        }
+
+        .video-section {
+            background: linear-gradient(135deg, #fff3cd 0%, #fffacd 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--cando-orange);
+            margin: 20px 0;
+        }
+
+        .video-player {
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0, 82, 204, 0.2);
+        }
+
+        .video-player video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .video-controls-info {
+            background: linear-gradient(135deg, var(--cando-light-blue) 0%, #f0f8ff 100%);
+            padding: 15px;
+            border-top: 2px solid var(--cando-blue);
+            font-size: 12px;
+            color: #666;
+        }
+
+        .video-player-container {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid var(--cando-blue);
+            box-shadow: 0 4px 12px rgba(0, 82, 204, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .video-player-container {
+                padding: 15px;
+                margin: 15px 0;
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-player-container {
+                padding: 12px;
+                margin: 12px 0;
+            }
+        }
+
+        .floor-plan {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px solid var(--cando-blue);
+        }
+
+        .floor-plan-title {
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, var(--cando-blue) 0%, var(--cando-dark-blue) 100%);
+            padding: 10px 15px;
+            margin: -15px -15px 10px -15px;
+            border-radius: 6px 6px 0 0;
+            font-size: 14px;
+        }
+
+        .facility-section {
+            background: linear-gradient(135deg, var(--cando-light-blue) 0%, #f0f8ff 100%);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--cando-blue);
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 13px;
+            color: #1a1a1a;
+            margin-top: 40px;
+            padding: 25px 20px;
+            border-top: 3px solid var(--cando-orange);
+            background: linear-gradient(135deg, #fef3e2 0%, #fed7aa 100%);
+            border-radius: 8px;
+            font-weight: 600;
+            line-height: 1.8;
+            box-shadow: 0 4px 8px rgba(255, 152, 0, 0.15);
+            border: 2px solid #fcd34d;
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 1024px) {
+            .staff-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .staff-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+
+        .staff-tile {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid;
+        }
+
+        .staff-tile-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .staff-tile-value {
+            font-size: 32px;
+            font-weight: 900;
+            margin: 10px 0 5px 0;
+        }
+
+        .staff-tile-label {
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .staff-tile-1 {
+            border-left-color: var(--cando-blue);
+        }
+
+        .staff-tile-1 .staff-tile-value {
+            color: var(--cando-blue);
+        }
+
+        .staff-tile-2 {
+            border-left-color: var(--cando-green);
+        }
+
+        .staff-tile-2 .staff-tile-value {
+            color: var(--cando-green);
+        }
+
+        .staff-tile-3 {
+            border-left-color: var(--cando-red);
+        }
+
+        .staff-tile-3 .staff-tile-value {
+            color: var(--cando-red);
+        }
+
+        .staff-tile-4 {
+            border-left-color: var(--cando-orange);
+            background: linear-gradient(135deg, #FFF8E7 0%, #FFE8B6 100%);
+        }
+
+        .staff-tile-4 .staff-tile-value {
+            color: var(--cando-orange);
+        }
+
+        /* PROJECTION CHARTS STYLES */
+        .chart-container {
+            background: linear-gradient(135deg, var(--cando-light-blue) 0%, #f0f8ff 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid var(--cando-blue);
+        }
+
+        .chart-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--cando-blue);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .chart-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .chart-row {
+                padding: 12px;
+                margin-bottom: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chart-row {
+                padding: 10px 8px;
+                margin-bottom: 15px;
+                gap: 8px;
+            }
+        }
+
+        .chart-label {
+            min-width: 120px;
+            font-weight: bold;
+            color: #333;
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            .chart-label {
+                min-width: 100px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chart-label {
+                min-width: 70px;
+                font-size: 11px;
+                flex-shrink: 0;
+            }
+        }
+
+        .chart-bar-container {
+            flex: 1;
+            margin: 0 15px;
+            height: 30px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .chart-bar-container {
+                height: 45px;
+                margin: 0 10px;
+                flex: 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chart-bar-container {
+                height: 50px;
+                margin: 0 6px;
+                flex: 3;
+            }
+        }
+
+        .chart-bar {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            transition: width 0.3s ease;
+        }
+
+        @media (max-width: 480px) {
+            .chart-bar {
+                font-size: 13px;
+                padding-right: 12px;
+            }
+        }
+
+        .chart-value {
+            min-width: 100px;
+            text-align: right;
+            font-weight: bold;
+            color: var(--cando-green);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .chart-value {
+                min-width: 85px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chart-value {
+                min-width: 70px;
+                font-size: 12px;
+                flex-shrink: 0;
+            }
+        }
+
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .scenario-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .scenario-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0fe 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid var(--cando-blue);
+        }
+
+        .scenario-box.breakeven {
+            border: 3px solid var(--cando-green);
+            background: linear-gradient(135deg, #d4edda 0%, #e8f5e9 100%);
+        }
+
+        .scenario-title {
+            font-weight: bold;
+            color: var(--cando-blue);
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .scenario-box.breakeven .scenario-title {
+            color: var(--cando-green);
+        }
+
+        .scenario-item {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 82, 204, 0.2);
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+        }
+
+        .scenario-item:last-child {
+            border-bottom: none;
+        }
+
+        .scenario-label {
+            color: #666;
+            font-weight: 600;
+        }
+
+        .scenario-value {
+            color: var(--cando-green);
+            font-weight: bold;
+        }
+
+        ul,
+        ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- PAGE 1: COVER PAGE -->
+    <div class="page">
+        <div class="header">
+            <div style="flex: 1;">
+                <div class="logo-placeholder">
+                    <img src="logo.jpg" alt="CanDO Logo" class="logo-image">
+                    <!-- <p style="margin: 10px 0 0 0; font-size: 12px;">EMPOWERING LITTLE MINDS</p> -->
+                </div>
+            </div>
+            <div style="flex: 2; padding-left: 30px;">
+                <h1 style="margin: 0; border: none; font-size: 28px;">Investment Prospectus</h1>
+                <p style="font-size: 16px; color: var(--cando-blue); margin: 10px 0;"><strong>CanDO Nursery</strong></p>
+            </div>
+        </div>
+
+        <div class="color-accent-bar"></div>
+
+        <!-- MAIN HIGHLIGHTED SECTION -->
+        <div class="main-highlight">
+            <h2>Premium Canadian Curriculum<br>Educational Facility</h2>
+
+            <div class="highlight-cards">
+                <!-- <div class="card card-location">
+                    <div class="card-icon">📍</div>
+                    <p class="card-label">Location</p>
+                    <p class="card-value">West Park Mall<br>Cairo, Egypt</p>
+                </div> -->
+                <div class="card card-location">
+                    <div class="card-icon">📍</div>
+                    <p class="card-label">Location</p>
+                    <p class="card-value">
+                        <a href="https://maps.app.goo.gl/4NLd5FSVGKSfJjSr9?g_st=ipc" target="_blank">
+                            West Park Mall<br>Cairo, Egypt
+                        </a>
+                    </p>
+                </div>
+                <div class="card card-price">
+                    <div class="card-icon">💰</div>
+                    <p class="card-label">Asking Price</p>
+                    <p class="card-value" id="investmentAmountUSD">$500,000 USD</p>
+                    <p class="card-subtext" id="investmentAmountEGP">23.8 Million EGP</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- METRICS CHARTS -->
+        <div class="metrics-section">
+            <h3>Key Investment Metrics</h3>
+
+            <div class="metrics-grid">
+                <div class="metric-card metric-card-1">
+                    <div class="metric-icon">👶</div>
+                    <p class="metric-value">65</p>
+                    <p class="metric-label">Current Students</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 30%;"></div>
+                    </div>
+                    <p class="metric-subtitle">Out of 220 Total Capacity (Oct 2025)</p>
+                </div>
+
+                <div class="metric-card metric-card-2">
+                    <div class="metric-icon">📊</div>
+                    <p class="metric-value">30%</p>
+                    <p class="metric-label">Student Occupancy</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 30%;"></div>
+                    </div>
+                    <p class="metric-subtitle">Massive Growth Potential</p>
+                </div>
+
+                <div class="metric-card metric-card-3">
+                    <div class="metric-icon">💵</div>
+                    <p class="metric-value">$252</p>
+                    <p class="metric-label">Tuition/Month</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%;"></div>
+                    </div>
+                    <p class="metric-subtitle">Effective Dec 2025 (from $205)</p>
+                </div>
+
+                <div class="metric-card metric-card-4">
+                    <div class="metric-icon">⏱️</div>
+                    <p class="metric-value">2.3</p>
+                    <p class="metric-label">Payback Period</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 70%;"></div>
+                    </div>
+                    <p class="metric-subtitle" id="paybackPeriodSubtitle">Years to Recover $500K Investment</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FINANCIAL POSITION -->
+        <div class="financial-box">
+            <h3>Current Financial Position (October 2025)</h3>
+            <div class="financial-grid">
+                <div class="financial-item">
+                    <p class="financial-item-label">Monthly Revenue</p>
+                    <p class="financial-item-value">$13,325</p>
+                </div>
+                <div class="financial-item">
+                    <p class="financial-item-label">Monthly Expenses</p>
+                    <p class="financial-item-value">$12,932</p>
+                </div>
+                <div class="financial-item">
+                    <p class="financial-item-label">Monthly Profit</p>
+                    <p class="financial-item-value">$393</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- STAFF SECTION -->
+        <div
+            style="background: linear-gradient(135deg, #fef3e2 0%, #fed7aa 100%); border-radius: 8px; padding: 25px; margin: 20px 0; border: 2px solid #fcd34d;">
+            <h3
+                style="margin: 0 0 20px 0; color: var(--cando-dark-blue); border: none; padding: 0; text-align: center;">
+                Professional Staff Team</h3>
+            <p style="text-align: center; color: #666; margin: 0 0 20px 0; font-size: 14px;"><strong>24 Experienced
+                    Professionals</strong> dedicated to quality education and student care</p>
+
+            <div class="staff-grid">
+                <div class="staff-tile staff-tile-1">
+                    <div class="staff-tile-icon">👨‍🏫</div>
+                    <p class="staff-tile-value">12</p>
+                    <p class="staff-tile-label">Teachers</p>
+                    <p style="font-size: 11px; color: #999; margin-top: 5px;">Qualified Educators</p>
+                </div>
+
+                <div class="staff-tile staff-tile-2">
+                    <div class="staff-tile-icon">👩‍🍼</div>
+                    <p class="staff-tile-value">10</p>
+                    <p class="staff-tile-label">Nannies</p>
+                    <p style="font-size: 11px; color: #999; margin-top: 5px;">Care Providers</p>
+                </div>
+
+                <div class="staff-tile staff-tile-3">
+                    <div class="staff-tile-icon">🛡️</div>
+                    <p class="staff-tile-value">2</p>
+                    <p class="staff-tile-label">Security</p>
+                    <p style="font-size: 11px; color: #999; margin-top: 5px;">24/7 Safety</p>
+                </div>
+
+                <div class="staff-tile staff-tile-4">
+                    <div class="staff-tile-icon">👥</div>
+                    <p class="staff-tile-value">24</p>
+                    <p class="staff-tile-label">Total Staff</p>
+                    <p style="font-size: 11px; color: #999; margin-top: 5px;">Professional Team</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- HIGHLIGHTS -->
+        <div class="highlights-box">
+            <h3>Investment Highlights</h3>
+            <div class="highlights-grid">
+                <p class="highlight-item"><strong>✓</strong> Seasonal peak: June-August avg 100+ children</p>
+                <p class="highlight-item"><strong>✓</strong> Breakeven at 50% capacity (110 children)</p>
+                <p class="highlight-item"><strong>✓</strong> 20% Annual Tax Rate</p>
+                <p class="highlight-item"><strong>✓</strong> Premium Canadian Curriculum</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Complete financial projections, photo gallery, multimedia tour, and facility details on following pages
+            </p>
+        </div>
+    </div>
+
+    <!-- PAGE 2: GALLERY PAGE -->
+    <div class="page page-break">
+        <div class="header">
+            <div style="flex: 1;">
+                <div class="logo-placeholder">
+                    <img src="logo.png" alt="CanDO Logo" class="logo-image">
+                </div>
+            </div>
+            <div style="flex: 2; padding-left: 30px;">
+                <h1 style="margin: 0; border: none; font-size: 24px;">Photo Gallery</h1>
+            </div>
+        </div>
+
+        <div class="color-accent-bar"></div>
+
+        <div class="summary-box">
+            <h2 style="margin-top: 0; border-left: none; padding-left: 0;">CanDO Nursery Photo Gallery</h2>
+            <p>Experience our beautiful facility through professional photography. Click any photo to view full size.
+            </p>
+        </div>
+
+        <!-- GALLERY SECTION -->
+        <div class="gallery-section">
+            <h2 style="text-align: center; border: none; padding: 0; margin: 0 0 30px 0; color: var(--cando-blue);">
+                Photo Gallery (16 Images)</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="gallery/001.jpeg" alt="CanDO Nursery Photo 1"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPhoto 1%3C/text%3E%3C/svg%3E'">
+                    <div class="gallery-item-overlay">Click to Enlarge</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="gallery/002.jpeg" alt="CanDO Nursery Photo 2"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPhoto 2%3C/text%3E%3C/svg%3E'">
+                    <div class="gallery-item-overlay">Click to Enlarge</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="gallery/003.jpeg" alt="CanDO Nursery Photo 3"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPhoto 3%3C/text%3E%3C/svg%3E'">
+                    <div class="gallery-item-overlay">Click to Enlarge</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="gallery/004.jpeg" alt="CanDO Nursery Photo 4"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPhoto 4%3C/text%3E%3C/svg%3E'">
+                    <div class="gallery-item-overlay">Click to Enlarge</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="gallery/005.jpeg" alt="CanDO Nursery Photo 5"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPhoto 5%3C/text%3E%3C/svg%3E'">
+                    <div class="gallery-item-overlay">Click to Enlarge</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="gallery/006.jpeg" alt="CanDO Nursery Photo 6"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPhoto 6%3C/text%3E%3C/svg%3E'">
+                    <div class="gallery-item-overlay">Click to Enlarge</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="gallery/007.jpeg" alt="CanDO Nursery Photo 7"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPhoto 7%3C/text%3E%3C/svg%3E'">
+                    <div class="gallery-item-overlay">Click to Enlarge</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="gallery/008.jpeg" alt="CanDO Nursery Photo 8"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPhoto 8%3C/text%3E%3C/svg%3E'">
+                    <div class="gallery-item-overlay">Click to Enlarge</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="gallery/009.jpeg" alt="CanDO Nursery Photo 9"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPhoto 9%3C/text%3E%3C/svg%3E'">
+                    <div class="gallery-item-overlay">Click to Enlarge</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="gallery/010.jpeg" alt="CanDO Nursery Photo 10"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPhoto 10%3C/text%3E%3C/svg%3E'">
+                    <div class="gallery-item-overlay">Click to Enlarge</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="gallery/011.jpeg" alt="CanDO Nursery Photo 11"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPhoto 11%3C/text%3E%3C/svg%3E'">
+                    <div class="gallery-item-overlay">Click to Enlarge</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="gallery/012.jpeg" alt="CanDO Nursery Photo 12"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPhoto 12%3C/text%3E%3C/svg%3E'">
+                    <div class="gallery-item-overlay">Click to Enlarge</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="gallery/013.jpeg" alt="CanDO Nursery Photo 13"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPhoto 13%3C/text%3E%3C/svg%3E'">
+                    <div class="gallery-item-overlay">Click to Enlarge</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="gallery/014.jpeg" alt="CanDO Nursery Photo 14"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPhoto 14%3C/text%3E%3C/svg%3E'">
+                    <div class="gallery-item-overlay">Click to Enlarge</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="gallery/015.jpeg" alt="CanDO Nursery Photo 15"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPhoto 15%3C/text%3E%3C/svg%3E'">
+                    <div class="gallery-item-overlay">Click to Enlarge</div>
+                </div>
+                <div class="gallery-item" onclick="openModal(this)">
+                    <img src="gallery/016.jpeg" alt="CanDO Nursery Photo 16"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2214%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3EPhoto 16%3C/text%3E%3C/svg%3E'">
+                    <div class="gallery-item-overlay">Click to Enlarge</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="success">
+            <strong>Gallery Features:</strong> Professional photography showcasing classrooms, outdoor spaces, swimming
+            pool, dining areas, and activities. All images highlight the premium quality and welcoming environment of
+            CanDO Nursery.
+        </div>
+
+        <div class="footer">
+            <p>All photos are professionally captured to represent the facility accurately</p>
+        </div>
+    </div>
+
+    <!-- PAGE 3: MULTIMEDIA TOUR -->
+    <div class="page page-break">
+        <div class="header">
+            <div style="flex: 1;">
+                <div class="logo-placeholder">
+                    <img src="logo.png" alt="CanDO Logo" class="logo-image">
+                </div>
+            </div>
+            <div style="flex: 2; padding-left: 30px;">
+                <h1 style="margin: 0; border: none; font-size: 24px;">Multimedia Tour</h1>
+            </div>
+        </div>
+
+        <div class="color-accent-bar"></div>
+
+        <div class="summary-box">
+            <h2 style="margin-top: 0; border-left: none; padding-left: 0;">Professional Facility Tour Available</h2>
+            <p>Experience CanDO Nursery firsthand through our comprehensive multimedia documentation.</p>
+        </div>
+
+        <h2>Main Facility Walkthrough Video</h2>
+
+        <div class="video-player-container">
+            <h3 style="margin: 0 0 15px 0; color: var(--cando-blue); border: none; padding: 0; text-align: center;">
+                Complete Facility Tour - Professional HD Video</h3>
+
+            <div class="video-player">
+                <video controls width="100%">
+                    <source src="cando_video.mp4" type="video/mp4">
+                    <p>Your browser doesn't support HTML5 video. Please download the video to watch it.</p>
+                </video>
+            </div>
+
+            <div class="video-controls-info">
+                <p style="margin: 0 0 10px 0;"><strong>Video Controls:</strong> Use the play button to start, adjust
+                    volume, and full screen with the player controls</p>
+                <p style="margin: 0;"><strong>Tip:</strong> Make sure cando_video.mp4 is in the same folder as this HTML
+                    file for the video to play</p>
+            </div>
+        </div>
+
+        <h3 style="color: var(--cando-blue); margin-top: 25px;">What This Video Includes:</h3>
+        <ul style="text-align: left; display: inline-block;">
+            <li>✓ Complete walkthrough of all 15 classrooms (Ground & Upper floors)</li>
+            <li>✓ 8 operating classes with students and curriculum in action</li>
+            <li>✓ Large swimming pool and outdoor recreation areas</li>
+            <li>✓ Dining facilities and kitchen operations</li>
+            <li>✓ Administrative offices and management areas</li>
+            <li>✓ Security systems and 24/7 CCTV coverage</li>
+            <li>✓ 7 closed classrooms ready for expansion</li>
+            <li>✓ Academic Classroom and specialized facilities</li>
+            <li>✓ Staff introductions and qualifications</li>
+            <li>✓ Facility amenities and modern technology</li>
+        </ul>
+
+        <h2>Online Presence</h2>
+        <div class="table-wrapper">
+            <table>
+                <tr>
+                    <th>Platform</th>
+                    <th>Content</th>
+                    <th>Link</th>
+                </tr>
+                <tr>
+                    <td><strong>Facebook Official Page</strong></td>
+                    <td>Daily activities, photos, parent reviews</td>
+                    <td><a href="https://www.facebook.com/share/1CxtKU1LSF/" target="_blank"
+                            style="color: var(--cando-blue);">Visit</a></td>
+                </tr>
+                <tr>
+                    <td><strong>Website</strong></td>
+                    <td>Curriculum, pricing, online inquiry</td>
+                    <td><a href="https://can-do.one" target="_blank" style="color: var(--cando-blue);">can-do.one</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="success" style="margin-top: 20px;">
+            <strong>MAJOR EXPANSION OPPORTUNITY:</strong> Currently operating at 30% capacity (65 of 220 children).
+            Breakeven point is 50% capacity (110 children). With seasonal peaks reaching 100+ children during summer
+            months, the facility demonstrates strong demand. Minimal additional investment required to scale operations.
+            Opening additional programs could dramatically boost profitability.
+        </div>
+
+        <div class="footer">
+            <p>All multimedia content is professionally produced and available for investor review</p>
+        </div>
+    </div>
+
+    <!-- PAGE 4: FACILITY OVERVIEW -->
+    <div class="page page-break">
+        <div class="header">
+            <div style="flex: 1;">
+                <div class="logo-placeholder">
+                    <img src="logo.png" alt="CanDO Logo" class="logo-image">
+                </div>
+            </div>
+            <div style="flex: 2; padding-left: 30px;">
+                <h1 style="margin: 0; border: none; font-size: 24px;">Facility Overview</h1>
+            </div>
+        </div>
+
+        <div class="color-accent-bar"></div>
+
+        <h2>Property Specifications</h2>
+        <div class="table-wrapper">
+            <table>
+                <tr>
+                    <th>Feature</th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td><strong>Land Area</strong></td>
+                    <td>1,000 m² (Garden with swimming pool)</td>
+                </tr>
+                <tr>
+                    <td><strong>Building Area</strong></td>
+                    <td>850 m² across 3 levels</td>
+                </tr>
+                <tr>
+                    <td><strong>Total Capacity</strong></td>
+                    <td>220 children</td>
+                </tr>
+                <tr>
+                    <td><strong>Current Enrollment</strong></td>
+                    <td>65 children (30% occupancy)</td>
+                </tr>
+                <tr>
+                    <td><strong>Key Amenities</strong></td>
+                    <td>Large swimming pool, fully air-conditioned, modern computer lab</td>
+                </tr>
+                <tr>
+                    <td><strong>Security</strong></td>
+                    <td>24/7 CCTV coverage throughout facility</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Facility Layout & Floor Plans</h2>
+
+        <div class="facility-section">
+            <p
+                style="background: linear-gradient(135deg, #d4edda 0%, #e8f5e9 100%); padding: 15px; border-radius: 6px; border-left: 4px solid var(--cando-green); margin-bottom: 20px;">
+                <strong>✓ Operating Classes (8 classes - CURRENTLY ACTIVE):</strong> Classes 1, 2, 3, 4, 5, 6, 7, 8
+            </p>
+            <p
+                style="background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%); padding: 15px; border-radius: 6px; border-left: 4px solid var(--cando-red);">
+                <strong>⊗ Closed Classes (7 classes - AVAILABLE FOR EXPANSION):</strong> Classes 9, 10, 11, 12, 13, 14,
+                15 + Academic Classroom
+            </p>
+
+            <div class="floor-plan">
+                <div class="floor-plan-title">GROUND FLOOR LAYOUT - Classes 1-8 (OPERATING ✓)</div>
+                <img src="floor-plan-ground.jpeg" alt="Ground Floor Layout"
+                    style="width: 100%; height: auto; border-radius: 8px; margin: 15px 0;">
+                <p style="font-size: 12px; color: #666; margin-top: 10px;"><strong>Green Highlighted:</strong> Classes
+                    1-8 Currently Operating</p>
+            </div>
+
+            <div class="floor-plan">
+                <div class="floor-plan-title">UPPER FLOOR LAYOUT - Classes 9-15 + Academic Classroom (CLOSED ⊗)</div>
+                <img src="floor-plan-upper.jpeg" alt="Upper Floor Layout"
+                    style="width: 100%; height: auto; border-radius: 8px; margin: 15px 0;">
+                <p style="font-size: 12px; color: #666; margin-top: 10px;"><strong>Purple Highlighted:</strong> Closed
+                    Classes - Ready for Expansion</p>
+                <p style="font-size: 12px; color: #666; margin-top: 5px;"><strong>Class 16 - Academic
+                        Classroom:</strong> Specialized teaching space for academic programs and curriculum support</p>
+            </div>
+
+            <div
+                style="background: linear-gradient(135deg, var(--cando-light-blue) 0%, #f0f8ff 100%); padding: 20px; border-radius: 8px; border: 2px solid var(--cando-blue); margin-top: 20px;">
+                <h3 style="margin: 0 0 15px 0; color: var(--cando-blue); border: none; padding: 0;">Total Classroom
+                    Breakdown</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div
+                        style="background: white; padding: 15px; border-radius: 6px; border-left: 4px solid var(--cando-green);">
+                        <p
+                            style="margin: 0; font-size: 12px; text-transform: uppercase; color: #999; font-weight: bold;">
+                            Ground Floor</p>
+                        <p style="margin: 10px 0 0 0; font-size: 18px; font-weight: bold; color: var(--cando-green);">8
+                            Classes Operating</p>
+                        <p style="margin: 5px 0 0 0; font-size: 13px; color: #666;"><strong>53.3%</strong> Classroom
+                            Utilization</p>
+                        <ul style="margin: 10px 0 0 0; font-size: 12px; color: #666; padding-left: 20px;">
+                            <li>Classrooms 1-8</li>
+                            <li>Dining Area (35.54 m²)</li>
+                            <li>Admin Office</li>
+                            <li>Kitchen & Facilities</li>
+                        </ul>
+                    </div>
+                    <div
+                        style="background: white; padding: 15px; border-radius: 6px; border-left: 4px solid var(--cando-orange);">
+                        <p
+                            style="margin: 0; font-size: 12px; text-transform: uppercase; color: #999; font-weight: bold;">
+                            Upper Floor</p>
+                        <p style="margin: 10px 0 0 0; font-size: 18px; font-weight: bold; color: var(--cando-orange);">7
+                            Classes Closed</p>
+                        <p style="margin: 5px 0 0 0; font-size: 13px; color: #666;"><strong>46.7%</strong> Ready for
+                            Expansion</p>
+                        <ul style="margin: 10px 0 0 0; font-size: 12px; color: #666; padding-left: 20px;">
+                            <li>Classrooms 9-15</li>
+                            <li>Academic Classroom</li>
+                            <li>Office Space</li>
+                            <li>Supporting Facilities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Professional floor plans and architectural layouts show comprehensive facility organization</p>
+        </div>
+    </div>
+
+    <!-- PAGE 5: FINANCIAL SUMMARY -->
+    <div class="page page-break">
+        <div class="header">
+            <div style="flex: 1;">
+                <div class="logo-placeholder">
+                    <img src="logo.png" alt="CanDO Logo" class="logo-image">
+                </div>
+            </div>
+            <div style="flex: 2; padding-left: 30px;">
+                <h1 style="margin: 0; border: none; font-size: 24px;">Financial Summary</h1>
+            </div>
+        </div>
+
+        <div class="color-accent-bar"></div>
+
+        <h2>Current Financial Position (October 2025)</h2>
+        <div class="table-wrapper">
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>Amount (USD)</th>
+                    <th>Amount (L.E.)</th>
+                </tr>
+                <tr>
+                    <td><strong>Rent</strong></td>
+                    <td>$6,450</td>
+                    <td>306,375</td>
+                </tr>
+                <tr>
+                    <td><strong>Salaries (24 Staff)</strong></td>
+                    <td>$4,202</td>
+                    <td>199,595</td>
+                </tr>
+                <tr>
+                    <td><strong>Utilities</strong></td>
+                    <td>$350</td>
+                    <td>16,625</td>
+                </tr>
+                <tr>
+                    <td><strong>Maintenance</strong></td>
+                    <td>$210</td>
+                    <td>9,975</td>
+                </tr>
+                <tr>
+                    <td><strong>Marketing</strong></td>
+                    <td>$420</td>
+                    <td>19,950</td>
+                </tr>
+                <tr>
+                    <td><strong>Variable (Meals $20/student)</strong></td>
+                    <td>$1,300</td>
+                    <td>61,750</td>
+                </tr>
+                <tr class="total">
+                    <td><strong>TOTAL MONTHLY EXPENSES</strong></td>
+                    <td><strong>$12,932</strong></td>
+                    <td><strong>614,270</strong></td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Revenue Analysis (October 2025)</h2>
+        <div class="table-wrapper">
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td><strong>Current Enrollment</strong></td>
+                    <td>65 children (~30% capacity)</td>
+                </tr>
+                <tr>
+                    <td><strong>Full Capacity</strong></td>
+                    <td>220 children</td>
+                </tr>
+                <tr>
+                    <td><strong>Current Tuition Rate</strong></td>
+                    <td>$205/month per student</td>
+                </tr>
+                <tr class="positive">
+                    <td><strong>New Tuition Rate (Dec 2025+)</strong></td>
+                    <td>$252/month per student</td>
+                </tr>
+                <tr>
+                    <td><strong>Current Monthly Revenue (65 × $205)</strong></td>
+                    <td>$13,325</td>
+                </tr>
+                <tr>
+                    <td><strong>Monthly Revenue After Dec 2025 (65 × $252)</strong></td>
+                    <td>$16,380</td>
+                </tr>
+                <tr class="positive">
+                    <td><strong>Breakeven Point</strong></td>
+                    <td>50% capacity = ~110 children</td>
+                </tr>
+                <tr>
+                    <td><strong>Full Capacity Revenue (220 × $252)</strong></td>
+                    <td>$55,440</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Seasonal Attendance Patterns</h2>
+        <div class="info-box">
+            <p><strong>Historical Data (Summer 2025):</strong></p>
+            <ul>
+                <li>June: 95 children</li>
+                <li>July: 121 children (Peak)</li>
+                <li>August: 115 children</li>
+                <li>September: 105 children</li>
+                <li>Average Summer Attendance: 82 children</li>
+            </ul>
+            <p style="font-size: 12px; color: #666;"><strong>Note:</strong> Typically deduct 25% from enrolled children
+                to estimate actual monthly revenue, accounting for full-time, part-time, and absent children. Breakeven
+                achieved at 50% capacity (110 children). Nursery operations are seasonal with peak attendance during
+                June-August (summer programs) and January (mid-year enrollment).</p>
+        </div>
+
+        <h2>Revenue Growth Projections (10% Annual Tuition Increase)</h2>
+        <div class="chart-container">
+            <div class="chart-title">Annual Revenue by Year</div>
+            <div class="chart-row">
+                <div class="chart-label">Year 0 (Current)</div>
+                <div class="chart-bar-container">
+                    <div class="chart-bar"
+                        style="width: 22%; background: linear-gradient(90deg, var(--cando-blue), var(--cando-dark-blue));">
+                        $196.6K</div>
+                </div>
+                <div class="chart-value">$196,560</div>
+            </div>
+            <div class="chart-row">
+                <div class="chart-label">Year 1 (Est.)</div>
+                <div class="chart-bar-container">
+                    <div class="chart-bar"
+                        style="width: 41%; background: linear-gradient(90deg, var(--cando-orange), #FF9800);">$365.6K
+                    </div>
+                </div>
+                <div class="chart-value">$365,640</div>
+            </div>
+            <div class="chart-row">
+                <div class="chart-label">Year 2 (Est.)</div>
+                <div class="chart-bar-container">
+                    <div class="chart-bar"
+                        style="width: 68%; background: linear-gradient(90deg, var(--cando-green), #45a049);">$603.9K
+                    </div>
+                </div>
+                <div class="chart-value">$603,900</div>
+            </div>
+            <div class="chart-row">
+                <div class="chart-label">Year 3 (Full)</div>
+                <div class="chart-bar-container">
+                    <div class="chart-bar"
+                        style="width: 100%; background: linear-gradient(90deg, var(--cando-red), #FF5252);">$884.4K
+                    </div>
+                </div>
+                <div class="chart-value">$884,400</div>
+            </div>
+        </div>
+
+        <h2>Annual Profit Growth (10% Expense Increase)</h2>
+        <div class="chart-container">
+            <div class="chart-title">Profit Growth by Year (After 20% Taxes)</div>
+            <div class="chart-row">
+                <div class="chart-label">Year 0 Profit</div>
+                <div class="chart-bar-container">
+                    <div class="chart-bar"
+                        style="width: 6%; background: linear-gradient(90deg, var(--cando-blue), var(--cando-dark-blue));">
+                        $33.1K</div>
+                </div>
+                <div class="chart-value">$33,101</div>
+            </div>
+            <div class="chart-row">
+                <div class="chart-label">Year 1 Profit</div>
+                <div class="chart-bar-container">
+                    <div class="chart-bar"
+                        style="width: 23%; background: linear-gradient(90deg, var(--cando-orange), #FF9800);">$155.9K
+                    </div>
+                </div>
+                <div class="chart-value">$155,950</div>
+            </div>
+            <div class="chart-row">
+                <div class="chart-label">Year 2 Profit</div>
+                <div class="chart-bar-container">
+                    <div class="chart-bar"
+                        style="width: 49%; background: linear-gradient(90deg, var(--cando-green), #45a049);">$332.9K
+                    </div>
+                </div>
+                <div class="chart-value">$332,902</div>
+            </div>
+            <div class="chart-row">
+                <div class="chart-label">Year 3 Profit</div>
+                <div class="chart-bar-container">
+                    <div class="chart-bar"
+                        style="width: 80%; background: linear-gradient(90deg, var(--cando-red), #FF5252);">$542.3K</div>
+                </div>
+                <div class="chart-value">$542,281</div>
+            </div>
+        </div>
+
+        <h2>ROI Comparison Across Years</h2>
+        <div class="scenario-grid">
+            <div class="scenario-box">
+                <div class="scenario-title">YEAR 0 - Current Position</div>
+                <div class="scenario-item">
+                    <div class="scenario-label">Enrollment:</div>
+                    <div class="scenario-value">65 students (30%)</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">Tuition Rate:</div>
+                    <div class="scenario-value">$205/month</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">Annual Revenue:</div>
+                    <div class="scenario-value">$159,900</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">Pre-Tax Profit:</div>
+                    <div class="scenario-value">-$44,316</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">After-Tax Profit:</div>
+                    <div class="scenario-value">-$35,453</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">ROI %:</div>
+                    <div class="scenario-value">-7.1%</div>
+                </div>
+            </div>
+
+            <div class="scenario-box breakeven">
+                <div class="scenario-title">✓ YEAR 1 - BREAKEVEN (50% CAPACITY)</div>
+                <div class="scenario-item">
+                    <div class="scenario-label">Enrollment:</div>
+                    <div class="scenario-value">110 students (50%)</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">Tuition Rate:</div>
+                    <div class="scenario-value">$252/month (Dec 2025 rate)</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">Annual Revenue:</div>
+                    <div class="scenario-value">$332,640</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">Pre-Tax Profit:</div>
+                    <div class="scenario-value">$128,424</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">After-Tax Profit:</div>
+                    <div class="scenario-value">$102,739</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">ROI %:</div>
+                    <div class="scenario-value">20.5%</div>
+                </div>
+            </div>
+
+            <div class="scenario-box">
+                <div class="scenario-title">YEAR 2 - Accelerated Growth</div>
+                <div class="scenario-item">
+                    <div class="scenario-label">Enrollment:</div>
+                    <div class="scenario-value">165 students (75%)</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">Tuition Rate:</div>
+                    <div class="scenario-value">$277/month (+10%)</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">Annual Revenue:</div>
+                    <div class="scenario-value">$548,340</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">Pre-Tax Profit:</div>
+                    <div class="scenario-value">$416,128</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">After-Tax Profit:</div>
+                    <div class="scenario-value">$332,902</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">ROI %:</div>
+                    <div class="scenario-value">66.6%</div>
+                </div>
+            </div>
+
+            <div class="scenario-box">
+                <div class="scenario-title">YEAR 3 - Full Capacity</div>
+                <div class="scenario-item">
+                    <div class="scenario-label">Enrollment:</div>
+                    <div class="scenario-value">220 students (100%)</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">Tuition Rate:</div>
+                    <div class="scenario-value">$305/month (+10%)</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">Annual Revenue:</div>
+                    <div class="scenario-value">$805,200</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">Pre-Tax Profit:</div>
+                    <div class="scenario-value">$677,851</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">After-Tax Profit:</div>
+                    <div class="scenario-value">$542,281</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-label">ROI %:</div>
+                    <div class="scenario-value">108.5%</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>3-Year Cumulative Performance (After 20% Annual Taxes)</h2>
+        <div class="chart-container">
+            <div class="chart-title">Cumulative Growth Summary (Year 0-3)</div>
+            <div class="chart-row">
+                <div class="chart-label">Total Revenue</div>
+                <div class="chart-bar-container">
+                    <div class="chart-bar" style="width: 85%; background: linear-gradient(90deg, #4CAF50, #45a049);">
+                        $2.05M</div>
+                </div>
+                <div class="chart-value">$2,050,500</div>
+            </div>
+            <div class="chart-row">
+                <div class="chart-label">Total Expenses</div>
+                <div class="chart-bar-container">
+                    <div class="chart-bar" style="width: 35%; background: linear-gradient(90deg, #FF5252, #FF3333);">
+                        $720.2K</div>
+                </div>
+                <div class="chart-value">$720,207</div>
+            </div>
+            <div class="chart-row">
+                <div class="chart-label">Pre-Tax Profit</div>
+                <div class="chart-bar-container">
+                    <div class="chart-bar" style="width: 65%; background: linear-gradient(90deg, #0052CC, #003d99);">
+                        $1.33M</div>
+                </div>
+                <div class="chart-value">$1,330,293</div>
+            </div>
+            <div class="chart-row">
+                <div class="chart-label">Total Taxes (20%)</div>
+                <div class="chart-bar-container">
+                    <div class="chart-bar" style="width: 13%; background: linear-gradient(90deg, #FF9800, #FF8800);">
+                        $266K</div>
+                </div>
+                <div class="chart-value">$266,059</div>
+            </div>
+            <div class="chart-row">
+                <div class="chart-label">After-Tax Profit</div>
+                <div class="chart-bar-container">
+                    <div class="chart-bar" style="width: 52%; background: linear-gradient(90deg, #FFD700, #FFC700);">
+                        $1.06M</div>
+                </div>
+                <div class="chart-value">$1,064,234</div>
+            </div>
+            <div class="chart-row">
+                <div class="chart-label">Total ROI (3 Years)</div>
+                <div class="chart-bar-container">
+                    <div class="chart-bar" style="width: 100%; background: linear-gradient(90deg, #4CAF50, #45a049);">
+                        212.8%</div>
+                </div>
+                <div class="chart-value">212.8% Return</div>
+            </div>
+        </div>
+
+        <div class="success" style="margin-top: 20px;">
+            <strong>📊 Investment Summary (After 20% Annual Taxes):</strong>
+            <ul>
+                <li><strong>Year 0:</strong> $33K after-tax profit (6.6% ROI)</li>
+                <li><strong>✓ YEAR 1 BREAKEVEN:</strong> 110 students (50% capacity) = $156K after-tax profit (31.2%
+                    ROI)</li>
+                <li><strong>Year 2:</strong> $333K after-tax profit (66.6% ROI)</li>
+                <li><strong>Year 3:</strong> $542K after-tax profit (108.5% ROI)</li>
+                <li><strong>3-Year Total After-Tax Profit:</strong> $1,064,234</li>
+                <li><strong>3-Year Total ROI:</strong> <span id="totalROIText">212.8% on $500K investment</span></li>
+                <li><strong>Average Annual After-Tax ROI:</strong> 53.2%</li>
+                <li><strong>Critical Milestone:</strong> Year 1 achieves breakeven capacity with strong profitability
+                </li>
+            </ul>
+        </div>
+
+        <h2>Growth Opportunities</h2>
+        <div class="success">
+            <ul>
+                <li><strong>Current Status:</strong> 65 children (30% occupancy)</li>
+                <li><strong>Breakeven Target:</strong> 110 children (50% occupancy)</li>
+                <li><strong>Projected Peak (Summer):</strong> 100+ children historically</li>
+                <li><strong>Full Capacity Goal:</strong> 220 children (potential monthly revenue: $55,440)</li>
+                <li><strong>Seasonal Peaks:</strong> June-August (summer programs), January (mid-year enrollment)</li>
+                <li><strong>Academic Year Start:</strong> September marks beginning of new academic year</li>
+                <li><strong>Annual Tax Rate:</strong> 20% on profits</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>Financial data updated October 2025 - Subject to verification and audit</p>
+        </div>
+    </div>
+
+    <!-- PAGE 6: INVESTMENT TERMS -->
+    <div class="page page-break">
+        <div class="header">
+            <div style="flex: 1;">
+                <div class="logo-placeholder">
+                    <img src="logo.png" alt="CanDO Logo" class="logo-image">
+                </div>
+            </div>
+            <div style="flex: 2; padding-left: 30px;">
+                <h1 style="margin: 0; border: none; font-size: 24px;">Investment Terms</h1>
+            </div>
+        </div>
+
+        <div class="color-accent-bar"></div>
+
+        <h2>Investment Summary</h2>
+        <div class="table-wrapper">
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td><strong>Purchase Price</strong></td>
+                    <td id="purchasePriceDisplay">$500,000 USD (23.8 Million EGP)</td>
+                </tr>
+                <tr>
+                    <td><strong>Current Enrollment</strong></td>
+                    <td>65 children (30% capacity)</td>
+                </tr>
+                <tr>
+                    <td><strong>Full Capacity</strong></td>
+                    <td>220 children</td>
+                </tr>
+                <tr>
+                    <td><strong>Monthly Expenses</strong></td>
+                    <td>$12,932 USD</td>
+                </tr>
+                <tr>
+                    <td><strong>Monthly Tuition (Current)</strong></td>
+                    <td>$205/child</td>
+                </tr>
+                <tr>
+                    <td><strong>Monthly Tuition (Dec 2025+)</strong></td>
+                    <td>$252/child</td>
+                </tr>
+                <tr>
+                    <td><strong>Breakeven Point</strong></td>
+                    <td>110 children (50% capacity)</td>
+                </tr>
+                <tr>
+                    <td><strong>Annual Tax Rate</strong></td>
+                    <td>20%</td>
+                </tr>
+                <tr class="positive">
+                    <td><strong>Full Capacity Annual Revenue</strong></td>
+                    <td>$665,280 USD (220 × $252 × 12)</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>What's Included</h2>
+        <ul class="checklist">
+            <li>Fully operational business with established reputation</li>
+            <li>All property, furniture, fixtures, and equipment</li>
+            <li>Current enrollment (65 paying children)</li>
+            <li>Trained staff (24 experienced employees)</li>
+            <li>Business licenses and permits</li>
+            <li>Brand identity and marketing materials</li>
+            <li>Premium Canadian curriculum system</li>
+        </ul>
+
+        <h2>Next Steps</h2>
+        <div class="success">
+            <ol>
+                <li><strong>Initial Inquiry:</strong> Express investment interest</li>
+                <li><strong>Photo & Multimedia Review:</strong> View gallery and video tour</li>
+                <li><strong>Financial Review:</strong> Detailed financial statements and projections</li>
+                <li><strong>Facility Tour:</strong> On-site visit and management meetings</li>
+                <li><strong>Due Diligence:</strong> Legal and financial advisor review</li>
+                <li><strong>Closing:</strong> Structure terms and complete transaction</li>
+            </ol>
+        </div>
+
+        <div class="video-section">
+            <h3 style="margin-top: 0;">Contact & Resources</h3>
+            <p><strong>Facebook:</strong> <a href="https://www.facebook.com/share/1CxtKU1LSF/" target="_blank">Visit
+                    Page</a></p>
+            <p><strong>Website:</strong> <a href="https://can-do.one" target="_blank">can-do.one</a></p>
+        </div>
+
+        <div class="footer">
+            <p>IMPORTANT LEGAL NOTICE</p>
+            <p style="margin-top: 10px;">This investment prospectus is for qualified investors only. Subject to full
+                due
+                diligence verification. All financial projections are estimates based on current data and market
+                assumptions. Investors should conduct independent legal and financial review before proceeding. This
+                is not
+                an offer to sell or a solicitation of an offer to buy securities.</p>
+        </div>
+    </div>
+
+    <!-- MODAL FOR GALLERY -->
+    <div id="galleryModal" class="modal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Enlarged Gallery Image">
+        </div>
+    </div>
+
+    <script>
+        function openModal(element) {
+            const modal = document.getElementById('galleryModal');
+            const modalImage = document.getElementById('modalImage');
+            const imgSrc = element.querySelector('img').src;
+            modalImage.src = imgSrc;
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('galleryModal');
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function (event) {
+            const modal = document.getElementById('galleryModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // ========================================
+        // DYNAMIC CALCULATION SYSTEM
+        // ========================================
+        
+        // Load configuration from Admin Panel (localStorage) or use defaults
+        const DEFAULT_CONFIG = {
+            // Current Status - STUDENTS
+            currentStudents: 74,              // Current enrollment (CHANGED FROM 65 to 74)
+            totalCapacity: 220,               // Maximum student capacity
+            
+            // Current Status - CLASSES/ROOMS
+            currentActiveClasses: 8,          // Number of classes currently running (CHANGE THIS)
+            totalClassrooms: 12,              // Total number of classrooms available (CHANGE THIS)
+            
+            // Tuition Rates
+            currentTuitionRate: 205,          // Current monthly tuition per student (October-November 2025)
+            futureTuitionRate: 252,           // Future tuition rate from December 2025
+            currentMonthlyExpenses: 12932,    // Current monthly operating expenses
+            
+            // Investment Details
+            investmentAmount: 500000,         // Purchase price
+            egpRate: 47.6,                    // EGP exchange rate
+            taxRate: 0.20,                    // 20% annual tax rate
+            
+            // Year 0 Projections (CURRENT situation - Oct/Nov 2025)
+            year0TuitionRate: 205,           // Current monthly tuition rate
+            year0MonthlyExpenses: 12932,      // Current operating costs
+            
+            // Year 1 Projections (50% capacity - BREAKEVEN, starting Dec 2025)
+            year1Students: 110,
+            year1TuitionRate: 252,            // New rate from Dec 2025
+            year1MonthlyExpenses: 17018,
+            
+            // Year 2 Projections (75% capacity)
+            year2Students: 165,
+            year2TuitionRate: 277,            // 10% increase from 2026
+            year2MonthlyExpenses: 17018,
+            
+            // Year 3 Projections (100% capacity)
+            year3Students: 220,
+            year3TuitionRate: 305,            // 10% increase
+            year3MonthlyExpenses: 17018
+        };
+
+        // Load saved configuration from Admin Panel (localStorage)
+        let CONFIG = {...DEFAULT_CONFIG};
+        try {
+            const savedConfig = localStorage.getItem('candoNurseryConfig');
+            if (savedConfig) {
+                const parsed = JSON.parse(savedConfig);
+                CONFIG = {...DEFAULT_CONFIG, ...parsed};
+                console.log('✅ Loaded configuration from Admin Panel');
+                console.log('📊 Active Config:', CONFIG);
+            } else {
+                console.log('ℹ️ Using default configuration (no saved config found)');
+            }
+        } catch (e) {
+            console.warn('⚠️ Error loading saved config, using defaults:', e);
+        }
+
+        // CALCULATION FUNCTIONS
+        function formatCurrency(amount) {
+            return '$' + amount.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+        }
+
+        function formatPercent(value) {
+            return value.toFixed(1) + '%';
+        }
+
+        function calculateOccupancy(students, capacity) {
+            return (students / capacity) * 100;
+        }
+
+        function calculateMonthlyRevenue(students, tuitionRate) {
+            return students * tuitionRate;
+        }
+
+        function calculateAnnualRevenue(students, tuitionRate) {
+            return students * tuitionRate * 12;
+        }
+
+        function calculateAnnualExpenses(monthlyExpenses) {
+            return monthlyExpenses * 12;
+        }
+
+        function calculatePreTaxProfit(revenue, expenses) {
+            return revenue - expenses;
+        }
+
+        function calculateAfterTaxProfit(preTaxProfit, taxRate) {
+            return preTaxProfit * (1 - taxRate);
+        }
+
+        function calculateROI(profit, investment) {
+            return (profit / investment) * 100;
+        }
+
+        // CALCULATE ALL METRICS
+        function calculateAllMetrics() {
+            const metrics = {};
+            
+            // Current Status
+            metrics.currentOccupancy = calculateOccupancy(CONFIG.currentStudents, CONFIG.totalCapacity);
+            metrics.classOccupancy = calculateOccupancy(CONFIG.currentActiveClasses, CONFIG.totalClassrooms);
+            metrics.currentMonthlyRevenue = calculateMonthlyRevenue(CONFIG.currentStudents, CONFIG.currentTuitionRate);
+            metrics.futureMonthlyRevenue = calculateMonthlyRevenue(CONFIG.currentStudents, CONFIG.futureTuitionRate);
+            metrics.currentMonthlyProfit = metrics.currentMonthlyRevenue - CONFIG.currentMonthlyExpenses;
+            metrics.futureMonthlyProfit = metrics.futureMonthlyRevenue - CONFIG.currentMonthlyExpenses;
+            metrics.egpAmount = CONFIG.investmentAmount * CONFIG.egpRate / 1000000;
+            
+            // Year 0 Calculations
+            const year0Revenue = calculateAnnualRevenue(CONFIG.currentStudents, CONFIG.year0TuitionRate);
+            const year0Expenses = calculateAnnualExpenses(CONFIG.year0MonthlyExpenses);
+            const year0PreTax = calculatePreTaxProfit(year0Revenue, year0Expenses);
+            const year0AfterTax = calculateAfterTaxProfit(year0PreTax, CONFIG.taxRate);
+            metrics.year0 = {
+                students: CONFIG.currentStudents,
+                occupancy: metrics.currentOccupancy,
+                tuitionRate: CONFIG.year0TuitionRate,
+                revenue: year0Revenue,
+                expenses: year0Expenses,
+                preTaxProfit: year0PreTax,
+                afterTaxProfit: year0AfterTax,
+                roi: calculateROI(year0AfterTax, CONFIG.investmentAmount)
+            };
+            
+            // Year 1 Calculations
+            const year1Revenue = calculateAnnualRevenue(CONFIG.year1Students, CONFIG.year1TuitionRate);
+            const year1Expenses = calculateAnnualExpenses(CONFIG.year1MonthlyExpenses);
+            const year1PreTax = calculatePreTaxProfit(year1Revenue, year1Expenses);
+            const year1AfterTax = calculateAfterTaxProfit(year1PreTax, CONFIG.taxRate);
+            metrics.year1 = {
+                students: CONFIG.year1Students,
+                occupancy: calculateOccupancy(CONFIG.year1Students, CONFIG.totalCapacity),
+                tuitionRate: CONFIG.year1TuitionRate,
+                revenue: year1Revenue,
+                expenses: year1Expenses,
+                preTaxProfit: year1PreTax,
+                afterTaxProfit: year1AfterTax,
+                roi: calculateROI(year1AfterTax, CONFIG.investmentAmount)
+            };
+            
+            // Year 2 Calculations
+            const year2Revenue = calculateAnnualRevenue(CONFIG.year2Students, CONFIG.year2TuitionRate);
+            const year2Expenses = calculateAnnualExpenses(CONFIG.year2MonthlyExpenses);
+            const year2PreTax = calculatePreTaxProfit(year2Revenue, year2Expenses);
+            const year2AfterTax = calculateAfterTaxProfit(year2PreTax, CONFIG.taxRate);
+            metrics.year2 = {
+                students: CONFIG.year2Students,
+                occupancy: calculateOccupancy(CONFIG.year2Students, CONFIG.totalCapacity),
+                tuitionRate: CONFIG.year2TuitionRate,
+                revenue: year2Revenue,
+                expenses: year2Expenses,
+                preTaxProfit: year2PreTax,
+                afterTaxProfit: year2AfterTax,
+                roi: calculateROI(year2AfterTax, CONFIG.investmentAmount)
+            };
+            
+            // Year 3 Calculations
+            const year3Revenue = calculateAnnualRevenue(CONFIG.year3Students, CONFIG.year3TuitionRate);
+            const year3Expenses = calculateAnnualExpenses(CONFIG.year3MonthlyExpenses);
+            const year3PreTax = calculatePreTaxProfit(year3Revenue, year3Expenses);
+            const year3AfterTax = calculateAfterTaxProfit(year3PreTax, CONFIG.taxRate);
+            metrics.year3 = {
+                students: CONFIG.year3Students,
+                occupancy: calculateOccupancy(CONFIG.year3Students, CONFIG.totalCapacity),
+                tuitionRate: CONFIG.year3TuitionRate,
+                revenue: year3Revenue,
+                expenses: year3Expenses,
+                preTaxProfit: year3PreTax,
+                afterTaxProfit: year3AfterTax,
+                roi: calculateROI(year3AfterTax, CONFIG.investmentAmount)
+            };
+            
+            // 3-Year Cumulative
+            metrics.cumulative = {
+                totalRevenue: year0Revenue + year1Revenue + year2Revenue + year3Revenue,
+                totalExpenses: year0Expenses + year1Expenses + year2Expenses + year3Expenses,
+                totalPreTax: year0PreTax + year1PreTax + year2PreTax + year3PreTax,
+                totalTaxes: (year0PreTax + year1PreTax + year2PreTax + year3PreTax) * CONFIG.taxRate,
+                totalAfterTax: year0AfterTax + year1AfterTax + year2AfterTax + year3AfterTax,
+                totalROI: calculateROI(year0AfterTax + year1AfterTax + year2AfterTax + year3AfterTax, CONFIG.investmentAmount),
+                avgROI: calculateROI(year0AfterTax + year1AfterTax + year2AfterTax + year3AfterTax, CONFIG.investmentAmount) / 4
+            };
+            
+            // Full Capacity Revenue
+            metrics.fullCapacityMonthlyRevenue = calculateMonthlyRevenue(CONFIG.totalCapacity, CONFIG.futureTuitionRate);
+            
+            return metrics;
+        }
+
+        // UPDATE DOM WITH CALCULATED VALUES
+        function updateDOM() {
+            const metrics = calculateAllMetrics();
+            
+            console.log('Updating DOM with metrics:', metrics);
+            
+            // Update investment amount displays
+            const investmentUSD = document.getElementById('investmentAmountUSD');
+            if (investmentUSD) {
+                investmentUSD.textContent = formatCurrency(CONFIG.investmentAmount) + ' USD';
+            }
+            
+            const investmentEGP = document.getElementById('investmentAmountEGP');
+            if (investmentEGP) {
+                const egpAmount = (CONFIG.investmentAmount * CONFIG.egpRate / 1000000).toFixed(1);
+                investmentEGP.textContent = egpAmount + ' Million EGP';
+            }
+            
+            const purchasePrice = document.getElementById('purchasePriceDisplay');
+            if (purchasePrice) {
+                const egpAmount = (CONFIG.investmentAmount * CONFIG.egpRate / 1000000).toFixed(1);
+                purchasePrice.textContent = formatCurrency(CONFIG.investmentAmount) + ' USD (' + egpAmount + ' Million EGP)';
+            }
+            
+            // Update payback period subtitle
+            const paybackSubtitle = document.getElementById('paybackPeriodSubtitle');
+            if (paybackSubtitle) {
+                const investmentInK = (CONFIG.investmentAmount / 1000).toFixed(0);
+                paybackSubtitle.textContent = 'Years to Recover $' + investmentInK + 'K Investment';
+            }
+            
+            // Update 3-Year Total ROI text
+            const roiText = document.getElementById('totalROIText');
+            if (roiText) {
+                const investmentInK = (CONFIG.investmentAmount / 1000).toFixed(0);
+                // Calculate actual ROI based on metrics
+                const totalProfit = metrics.year1.afterTaxProfit + metrics.year2.afterTaxProfit + metrics.year3.afterTaxProfit;
+                const totalROI = (totalProfit / CONFIG.investmentAmount * 100).toFixed(1);
+                roiText.textContent = totalROI + '% on $' + investmentInK + 'K investment';
+            }
+            
+            // Update all instances throughout the document
+            document.body.innerHTML = document.body.innerHTML
+                // Current students - all variations
+                .replace(/\b65\s+children/g, CONFIG.currentStudents + ' children')
+                .replace(/\b74\s+children/g, CONFIG.currentStudents + ' children')
+                .replace(/\b65\s+students/g, CONFIG.currentStudents + ' students')
+                .replace(/\b74\s+students/g, CONFIG.currentStudents + ' students')
+                .replace(/\(65\s+×/g, '(' + CONFIG.currentStudents + ' ×')
+                .replace(/\(74\s+×/g, '(' + CONFIG.currentStudents + ' ×')
+                .replace(/>65</g, '>' + CONFIG.currentStudents + '<')
+                .replace(/>74</g, '>' + CONFIG.currentStudents + '<')
+                
+                // Current occupancy
+                .replace(/30%\s+occupancy/g, Math.round(metrics.currentOccupancy) + '% occupancy')
+                .replace(/34%\s+occupancy/g, Math.round(metrics.currentOccupancy) + '% occupancy')
+                .replace(/30%\s+capacity/g, Math.round(metrics.currentOccupancy) + '% capacity')
+                .replace(/34%\s+capacity/g, Math.round(metrics.currentOccupancy) + '% capacity')
+                .replace(/\(30%\)/g, '(' + Math.round(metrics.currentOccupancy) + '%)')
+                .replace(/\(34%\)/g, '(' + Math.round(metrics.currentOccupancy) + '%)')
+                .replace(/width: 30%/g, 'width: ' + Math.round(metrics.currentOccupancy) + '%')
+                .replace(/width: 34%/g, 'width: ' + Math.round(metrics.currentOccupancy) + '%')
+                
+                // Current monthly revenue
+                .replace(/\$13,325/g, formatCurrency(metrics.currentMonthlyRevenue))
+                .replace(/\$15,170/g, formatCurrency(metrics.currentMonthlyRevenue))
+                
+                // Future monthly revenue after Dec 2025 (74 × $252 = $18,648)
+                .replace(/\$16,380/g, formatCurrency(metrics.futureMonthlyRevenue))
+                .replace(/\$18,648/g, formatCurrency(metrics.futureMonthlyRevenue))
+                
+                // Current monthly expenses and profit
+                .replace(/\$12,932/g, formatCurrency(CONFIG.currentMonthlyExpenses))
+                .replace(/\$393/g, formatCurrency(metrics.currentMonthlyProfit))
+                .replace(/\$2,238/g, formatCurrency(metrics.currentMonthlyProfit))
+                
+                // Year 0 values - handle both old ($252 rate) and new ($205 rate) values
+                .replace(/\$196,560/g, formatCurrency(metrics.year0.revenue))
+                .replace(/\$223,776/g, formatCurrency(metrics.year0.revenue))
+                .replace(/\$159,900/g, formatCurrency(metrics.year0.revenue))
+                .replace(/\$182,040/g, formatCurrency(metrics.year0.revenue))
+                .replace(/\$204,216/g, formatCurrency(metrics.year0.expenses))
+                .replace(/\$155,184/g, formatCurrency(metrics.year0.expenses))
+                .replace(/\$41,376/g, formatCurrency(metrics.year0.preTaxProfit))
+                .replace(/\$19,560/g, formatCurrency(metrics.year0.preTaxProfit))
+                .replace(/-\$44,316/g, formatCurrency(metrics.year0.preTaxProfit))
+                .replace(/\$26,856/g, formatCurrency(metrics.year0.preTaxProfit))
+                .replace(/\$33,101/g, formatCurrency(metrics.year0.afterTaxProfit))
+                .replace(/\$15,648/g, formatCurrency(metrics.year0.afterTaxProfit))
+                .replace(/-\$35,453/g, formatCurrency(metrics.year0.afterTaxProfit))
+                .replace(/\$21,485/g, formatCurrency(metrics.year0.afterTaxProfit))
+                .replace(/6\.6%/g, formatPercent(metrics.year0.roi))
+                .replace(/3\.1%/g, formatPercent(metrics.year0.roi))
+                .replace(/-7\.1%/g, formatPercent(metrics.year0.roi))
+                .replace(/4\.3%/g, formatPercent(metrics.year0.roi))
+                .replace(/\$252\/month/g, '$' + CONFIG.year0TuitionRate + '/month')
+                .replace(/\$205\/month/g, '$' + CONFIG.year0TuitionRate + '/month')
+                
+                // Year 1 values (Breakeven) - handle both old and new values
+                .replace(/\$365,640/g, formatCurrency(metrics.year1.revenue))
+                .replace(/\$332,640/g, formatCurrency(metrics.year1.revenue))
+                .replace(/\$194,938/g, formatCurrency(metrics.year1.preTaxProfit))
+                .replace(/\$128,424/g, formatCurrency(metrics.year1.preTaxProfit))
+                .replace(/\$155,950/g, formatCurrency(metrics.year1.afterTaxProfit))
+                .replace(/\$102,739/g, formatCurrency(metrics.year1.afterTaxProfit))
+                .replace(/31\.2%/g, formatPercent(metrics.year1.roi))
+                .replace(/20\.5%/g, formatPercent(metrics.year1.roi))
+                .replace(/\$277\/month \(\+10%\)/g, '$' + CONFIG.year1TuitionRate + '/month (Dec 2025 rate)')
+                .replace(/\$277\/month/g, '$' + CONFIG.year1TuitionRate + '/month')
+                
+                // Year 2 values
+                .replace(/165\s+students\s+\(75%\)/g, CONFIG.year2Students + ' students (' + Math.round(metrics.year2.occupancy) + '%)')
+                .replace(/\$603,900/g, formatCurrency(metrics.year2.revenue))
+                .replace(/\$416,128/g, formatCurrency(metrics.year2.preTaxProfit))
+                .replace(/\$332,902/g, formatCurrency(metrics.year2.afterTaxProfit))
+                .replace(/66\.6%/g, formatPercent(metrics.year2.roi))
+                
+                // Year 3 values
+                .replace(/\$884,400/g, formatCurrency(metrics.year3.revenue))
+                .replace(/\$677,851/g, formatCurrency(metrics.year3.preTaxProfit))
+                .replace(/\$542,281/g, formatCurrency(metrics.year3.afterTaxProfit))
+                .replace(/108\.5%/g, formatPercent(metrics.year3.roi))
+                
+                // Cumulative values
+                .replace(/\$2,077,716/g, formatCurrency(metrics.cumulative.totalRevenue))
+                .replace(/\$2,050,500/g, formatCurrency(metrics.cumulative.totalRevenue))
+                .replace(/\$2\.08M/g, '$' + (metrics.cumulative.totalRevenue / 1000000).toFixed(2) + 'M')
+                .replace(/\$2\.05M/g, '$' + (metrics.cumulative.totalRevenue / 1000000).toFixed(2) + 'M')
+                .replace(/\$720,207/g, formatCurrency(metrics.cumulative.totalExpenses))
+                .replace(/\$720\.2K/g, '$' + (metrics.cumulative.totalExpenses / 1000).toFixed(1) + 'K')
+                .replace(/\$1,357,509/g, formatCurrency(metrics.cumulative.totalPreTax))
+                .replace(/\$1,330,293/g, formatCurrency(metrics.cumulative.totalPreTax))
+                .replace(/\$1\.36M/g, '$' + (metrics.cumulative.totalPreTax / 1000000).toFixed(2) + 'M')
+                .replace(/\$1\.33M/g, '$' + (metrics.cumulative.totalPreTax / 1000000).toFixed(2) + 'M')
+                .replace(/\$271,502/g, formatCurrency(metrics.cumulative.totalTaxes))
+                .replace(/\$266,059/g, formatCurrency(metrics.cumulative.totalTaxes))
+                .replace(/\$271\.5K/g, '$' + Math.round(metrics.cumulative.totalTaxes / 1000) + 'K')
+                .replace(/\$266K/g, '$' + Math.round(metrics.cumulative.totalTaxes / 1000) + 'K')
+                .replace(/\$1,086,007/g, formatCurrency(metrics.cumulative.totalAfterTax))
+                .replace(/\$1,064,234/g, formatCurrency(metrics.cumulative.totalAfterTax))
+                .replace(/\$1\.09M/g, '$' + (metrics.cumulative.totalAfterTax / 1000000).toFixed(2) + 'M')
+                .replace(/\$1\.06M/g, '$' + (metrics.cumulative.totalAfterTax / 1000000).toFixed(2) + 'M')
+                .replace(/217\.2%/g, formatPercent(metrics.cumulative.totalROI))
+                .replace(/212\.8%/g, formatPercent(metrics.cumulative.totalROI))
+                .replace(/54\.3%/g, formatPercent(metrics.cumulative.avgROI))
+                .replace(/53\.2%/g, formatPercent(metrics.cumulative.avgROI))
+                
+                // Full capacity potential
+                .replace(/\$55,440/g, formatCurrency(metrics.fullCapacityMonthlyRevenue))
+                .replace(/\$665,280/g, formatCurrency(metrics.fullCapacityMonthlyRevenue * 12))
+                
+                // EGP amount
+                .replace(/23\.8\s+Million\s+EGP/g, metrics.egpAmount.toFixed(1) + ' Million EGP');
+            
+            console.log('DOM update complete!');
+            console.log('Key values updated:');
+            console.log('- Current students: ' + CONFIG.currentStudents + ' (' + Math.round(metrics.currentOccupancy) + '% student occupancy)');
+            console.log('- Active classes: ' + CONFIG.currentActiveClasses + ' of ' + CONFIG.totalClassrooms + ' (' + Math.round(metrics.classOccupancy) + '% class occupancy)');
+            console.log('- Current monthly revenue (@ $205): ' + formatCurrency(metrics.currentMonthlyRevenue));
+            console.log('- Future monthly revenue (@ $252 from Dec): ' + formatCurrency(metrics.futureMonthlyRevenue));
+            console.log('- Current monthly expenses: ' + formatCurrency(CONFIG.currentMonthlyExpenses));
+            console.log('- Current monthly profit: ' + formatCurrency(metrics.currentMonthlyProfit));
+            console.log('- Future monthly profit (from Dec): ' + formatCurrency(metrics.futureMonthlyProfit));
+        }
+
+        // RUN ON PAGE LOAD
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, running automatic calculations...');
+            updateDOM();
+            console.log('All numbers updated successfully!');
+            console.log('To change any number, edit the CONFIG object and reload the page.');
+        });
+    </script>
+</body>
+
+</html>
