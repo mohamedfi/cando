@@ -1238,7 +1238,7 @@
 
                 <div class="metric-card metric-card-4">
                     <div class="metric-icon">⏱️</div>
-                    <p class="metric-value">2.3</p>
+                    <p class="metric-value" id="paybackPeriodValue">2.3</p>
                     <p class="metric-label">Payback Period</p>
                     <div class="progress-bar">
                         <div class="progress-fill" style="width: 70%;"></div>
@@ -2385,10 +2385,38 @@
                 totalROI: calculateROI(year0AfterTax + year1AfterTax + year2AfterTax + year3AfterTax, CONFIG.investmentAmount),
                 avgROI: calculateROI(year0AfterTax + year1AfterTax + year2AfterTax + year3AfterTax, CONFIG.investmentAmount) / 4
             };
-            
+
+            // Calculate Payback Period
+            let cumulativeProfit = 0;
+            let paybackPeriod = 0;
+            const yearProfits = [year0AfterTax, year1AfterTax, year2AfterTax, year3AfterTax];
+
+            for (let i = 0; i < yearProfits.length; i++) {
+                cumulativeProfit += yearProfits[i];
+                if (cumulativeProfit >= CONFIG.investmentAmount) {
+                    // Calculate fractional year
+                    const excessProfit = cumulativeProfit - CONFIG.investmentAmount;
+                    const fractionOfYear = excessProfit / yearProfits[i];
+                    paybackPeriod = i + 1 - fractionOfYear;
+                    break;
+                }
+            }
+
+            // If investment not recovered in 4 years, set to 4+ or calculate based on average
+            if (paybackPeriod === 0) {
+                const avgAnnualProfit = cumulativeProfit / 4;
+                if (avgAnnualProfit > 0) {
+                    paybackPeriod = CONFIG.investmentAmount / avgAnnualProfit;
+                } else {
+                    paybackPeriod = 99; // Never recovers
+                }
+            }
+
+            metrics.paybackPeriod = paybackPeriod;
+
             // Full Capacity Revenue
             metrics.fullCapacityMonthlyRevenue = calculateMonthlyRevenue(CONFIG.totalCapacity, CONFIG.futureTuitionRate);
-            
+
             return metrics;
         }
 
@@ -2422,7 +2450,13 @@
                 const investmentInK = (CONFIG.investmentAmount / 1000).toFixed(0);
                 paybackSubtitle.textContent = 'Years to Recover $' + investmentInK + 'K Investment';
             }
-            
+
+            // Update payback period value
+            const paybackValue = document.getElementById('paybackPeriodValue');
+            if (paybackValue) {
+                paybackValue.textContent = metrics.paybackPeriod.toFixed(1);
+            }
+
             // Update 3-Year Total ROI text
             const roiText = document.getElementById('totalROIText');
             if (roiText) {
